@@ -1,247 +1,79 @@
-# 🚀 Website Portofolio Pribadi
+# 🚀 Website Portofolio Pribadi Lippbyte
 
-Website portofolio pribadi yang modern, responsif, dan dinamis menggunakan HTML, CSS, dan JavaScript murni (tanpa framework).
+Website portofolio pribadi yang modern, responsif, berdesain premium dengan fitur animasi, *Dark/Light Mode*, serta sistem pengiriman pesan langsung ke email tanpa perlu backend. Dibangun menggunakan HTML, CSS, dan JavaScript Vanilla.
 
 ## ✨ Fitur Utama
 
-- ✅ **Fully Responsive** - Tampil sempurna di semua device (mobile, tablet, desktop)
-- ✅ **Dark/Light Mode** - Toggle tema dengan animasi smooth
-- ✅ **Data-Driven** - Konten dinamis dari JavaScript array (mudah di-update)
-- ✅ **Modern Design** - UI/UX premium dengan animasi dan hover effects
-- ✅ **SEO Optimized** - Semantic HTML dan meta tags lengkap
-- ✅ **Form Validation** - Validasi form contact dengan JavaScript
-- ✅ **Smooth Animations** - Scroll animations dan typing effect
-- ✅ **Performance** - Optimized untuk loading cepat
+- ✅ **Fully Responsive** - UI/UX dioptimalkan untuk Mobile, Tablet, dan Desktop. Menampilkan *Glassmorphism* yang memukau.
+- ✅ **Dark/Light Mode** - Toggle tema dengan animasi yang *smooth*. Preferensi disimpan otomatis di `localStorage` menggunakan Vanilla JS.
+- ✅ **Real Contact Form** - Pengiriman pesan form langsung masuk ke email (`muhammad.khalifa3289@gmail.com`) menggunakan API gratis dari **FormSubmit.co** (via AJAX Fetch API tanpa reload halaman).
+- ✅ **Dynamic Typing Effect** - Animasi *typewriting* pada header yang otomatis mendeskripsikan ringkasan keahlian.
+- ✅ **SVG & Custom Brand Icons** - Menggunakan *inline SVG* dan *local image* berkualitas tinggi (Notion, Antigravity, Laravel, dll) secara konsisten yang bereaksi otomatis di kedua skema warna.
+- ✅ **Smooth Animations** - Menerapkan *IntersectionObserver* untuk animasi *fade-in* saat pengguna men-scroll ke bagian baru, serta transisi *hover* yang hidup!
+- ✅ **SEO & Semantic HTML** - Kode HTML direstrukturisasi secara semantik agar mudah dirayapi oleh mesin pencari.
 
 ## 📁 Struktur File
 
-```
+```text
 porto-website/
-├── index.html          # Struktur halaman utama
-├── style.css           # Styling dan design system
-├── script.js           # Logika dan interaktivitas
-├── img/                # Folder gambar
-│   ├── profile.jpg
-│   ├── about.jpg
-│   └── project-*.jpg
+├── index.html          # Struktur halaman utama dan konten
+├── style.css           # Styling modern, token warna, adaptasi Light Mode, dan animasi
+├── script.js           # Skrip Light/Dark mode, animasi ngetik, observer, dan AJAX Form
+├── img/                # Aset gambar portofolio, profil, dan SVG (Notion, Antigravity)
 └── README.md           # Dokumentasi ini
 ```
 
 ## 🎯 Cara Menjalankan
 
-### Metode 1: Langsung Buka File
-1. Buka folder `porto-website`
-2. Double-click file `index.html`
-3. Website akan terbuka di browser default Anda
+### Menggunakan VS Code Live Server (Rekomendasi)
+1. Buka folder `porto-website` di aplikasi VS Code
+2. Pastikan ekstensi **Live Server** sudah terpasang.
+3. Klik kanan pada file `index.html` → pilih **"Open with Live Server"**.
+4. Website akan terbuka di `http://127.0.0.1:5500`.
 
-### Metode 2: Menggunakan Live Server (Recommended)
-1. Install extension **Live Server** di VS Code
-2. Buka folder `porto-website` di VS Code
-3. Klik kanan pada `index.html` → pilih "Open with Live Server"
-4. Website akan terbuka di `http://localhost:5500`
-
-### Metode 3: Menggunakan Python HTTP Server
-```bash
-# Masuk ke folder project
-cd "d:/DATA ALIF/Project/porto-website"
-
-# Jalankan server (Python 3)
-python -m http.server 8000
-
-# Buka browser ke http://localhost:8000
-```
-
-## 🎨 Cara Mengupdate Konten
-
-Semua konten website bisa diubah dengan mudah tanpa menyentuh HTML!
-
-### 1. Mengubah Data Skills
-
-Buka `script.js`, cari bagian **DATA SKILLS** (baris ~6):
-
-```javascript
-const skills = [
-    {
-        category: "Frontend",
-        items: ["HTML5", "CSS3", "JavaScript", "React"]
-    },
-    {
-        category: "Backend",
-        items: ["Node.js", "Express", "PHP"]
-    }
-    // Tambah kategori baru di sini
-];
-```
-
-**Cara menambah skill:**
-- Tambah item baru di dalam array `items`
-- Atau tambah kategori baru dengan format yang sama
-
-### 2. Mengubah Data Projects
-
-Buka `script.js`, cari bagian **DATA PROJECTS** (baris ~20):
-
-```javascript
-const projects = [
-    {
-        title: "Nama Project",
-        description: "Deskripsi singkat project",
-        tech: ["HTML", "CSS", "JavaScript"],
-        linkDemo: "https://demo-link.com",
-        linkRepo: "https://github.com/username/repo",
-        image: "img/project-name.jpg"
-    }
-    // Tambah project baru di sini
-];
-```
-
-**Cara menambah project:**
-1. Copy salah satu object project
-2. Ubah semua properti sesuai project baru Anda
-3. Tambahkan gambar project ke folder `img/`
-4. Update path `image` sesuai nama file gambar
-
-### 3. Mengubah Data Experience
-
-Buka `script.js`, cari bagian **DATA EXPERIENCE** (baris ~70):
-
-```javascript
-const experiences = [
-    {
-        title: "Posisi/Gelar",
-        company: "Nama Perusahaan/Institusi",
-        description: "Deskripsi pekerjaan/pendidikan",
-        date: "2023 - Sekarang",
-        type: "work" // atau "education"
-    }
-    // Tambah experience baru di sini
-];
-```
-
-### 4. Mengubah Informasi Pribadi
-
-Buka `index.html` dan cari bagian yang ingin diubah:
-
-- **Nama**: Cari `<h1 class="hero-name">` (baris ~66)
-- **Role**: Cari `<h2 class="hero-role">` (baris ~69)
-- **Deskripsi**: Cari `<p class="hero-description">` (baris ~72)
-- **Email/Phone**: Cari section `contact-details` (baris ~240)
-- **Social Media**: Cari `hero-social` dan `footer-social`
-
-### 5. Mengubah Foto Profil
-
-1. Siapkan foto Anda (format JPG/PNG, ukuran recommended: 500x500px)
-2. Simpan di folder `img/` dengan nama `profile.jpg`
-3. Foto akan otomatis muncul di hero section
+### Membuka Secara Langsung (Offline)
+Cukup buka / *double-click* file `index.html` pada File Explorer Anda dan tampilan akan langsung termuat di Browser modern favorit Anda (Chrome, Firefox, Edge, Safari).
 
 ## 🎨 Kustomisasi Warna & Tema
 
-Buka `style.css`, cari bagian **CSS VARIABLES** (baris ~1):
+Warna inti (*branding*) diatur pada bagian paling awal dari `style.css` menggunakan **CSS Root Variables**. Anda hanya perlu mengganti angka-angka *hue* di bawah ini yang akan otomatis diadaptasikan menjadi efek *gradient* dan bayangan pada seluruh halaman.
 
 ```css
 :root {
-    /* Ubah warna primary */
-    --color-primary: hsl(250, 84%, 54%);
-    
-    /* Ubah warna secondary */
-    --color-secondary: hsl(340, 82%, 52%);
-    
-    /* Ubah warna accent */
-    --color-accent: hsl(180, 62%, 55%);
+  /* HSL Colors: Tema Gelap - Ungu / Biru (Modern Gradient) */
+  --hue-color: 250; /* Ganti dengan hue idaman Anda (0-360) / 250 untuk Ungu */
+  --hue-color-alt: 210; /* Warna gradasi kedua (Aksen Biru) */
+  ...
 }
 ```
 
-**Tips:**
-- Gunakan HSL color untuk kontrol yang lebih baik
-- Ubah nilai `hue` (0-360) untuk warna berbeda
-- Ubah `saturation` (0-100%) untuk intensitas warna
-- Ubah `lightness` (0-100%) untuk kecerahan
+Penyelarasan Light Mode telah ditulis secara rapi di dalam *block* `.light-theme`. Jika ingin mengubah warna cerahnya, Anda bisa mengubah variabel pada *block* tersebut.
 
-## 🌙 Dark Mode
+## ✉️ Integrasi Form Email otomatis (FormSubmit)
 
-Dark mode sudah otomatis tersedia! User bisa toggle dengan tombol di navbar.
+Website ini tidak membutuhkan File PHP atau Backend Server untuk mengelola form kontak!
 
-Preferensi tema akan tersimpan di localStorage, jadi tetap aktif meskipun page di-refresh.
+**Cara kerja saat ini:**
+1. Form merujuk ke endpoint action API dari `https://formsubmit.co/muhammad.khalifa3289@gmail.com`
+2. Modul JS membajaknya menggunakan `event.preventDefault()` lalu mengirim ulang dengan format JSON (melalui *Fetch API*).
+3. Pengguna tidak dialihkan laman jika form selesai terkirim (muncul notifikasi Pop-up pesan terkirim berwarna hijau)!
+4. Form dilindungi perlindungan Spam (*Honey Pot*).
 
-## 📱 Responsive Breakpoints
+> **PENTING:** Saat pertama kali diujicoba mengirim pesan (di *production/live*), Google akan menjeda email dan FormSubmit akan mengirimkan pesan Aktivasi ke `muhammad.khalifa3289@gmail.com`. Silakan klik Tombol *Activate* di inbox email agar sisa pesan ke depannya bisa masuk secara langsung (Tindakan ini cuma perlu dilakukan **sekali saja**).
 
-Website otomatis menyesuaikan layout di berbagai ukuran layar:
+## 🧰 Kustomisasi Keahlian (Skills) & Logo
 
-- **Desktop**: > 968px (Grid layout, sidebar navigation)
-- **Tablet**: 640px - 968px (Adjusted grid, mobile menu)
-- **Mobile**: < 640px (Single column, hamburger menu)
+Logo spesifik *framework* di bagian "Skills" tidak menggunakan library luar. Sebagian besar mengaplikasikan SVG yang tertanam langsung yang menyesuaikan tema menggunakan nilai properti `currentColor`.
+
+Untuk *icon* tanpa box-icon resmi seperti **Notion** & **Antigravity**, file image diposisikan dalam tab `<img>` yang dipanggil dari folder logonya menggunakan *class* `.skill-img-icon` agar skalanya identik dan estetik.
 
 ## 🔧 Troubleshooting
 
-### Gambar Tidak Muncul
-- Pastikan file gambar ada di folder `img/`
-- Cek nama file sesuai dengan yang di-reference di `script.js`
-- Gunakan format JPG atau PNG
-- Jika gambar tidak ada, akan muncul placeholder otomatis
-
-### Dark Mode Tidak Berfungsi
-- Buka Console browser (F12)
-- Cek apakah ada error JavaScript
-- Pastikan `script.js` ter-load dengan benar
-
-### Form Contact Tidak Berfungsi
-- Form hanya validasi di frontend (tidak ada backend)
-- Pesan akan muncul sebagai alert notification
-- Untuk mengirim email sungguhan, perlu integrasi backend
-
-## 🚀 Tips Deployment
-
-### Deploy ke GitHub Pages
-1. Upload semua file ke GitHub repository
-2. Ke Settings → Pages
-3. Pilih branch `main` dan folder `root`
-4. Website akan live di `https://username.github.io/repo-name`
-
-### Deploy ke Netlify
-1. Drag & drop folder `porto-website` ke Netlify
-2. Website langsung live!
-3. Atau connect ke GitHub repo untuk auto-deploy
-
-### Deploy ke Vercel
-1. Install Vercel CLI: `npm i -g vercel`
-2. Di folder project: `vercel`
-3. Follow instruksi di terminal
-
-## 📝 Checklist Sebelum Deploy
-
-- [ ] Ubah semua data dummy dengan data pribadi Anda
-- [ ] Upload foto profil asli
-- [ ] Update link social media
-- [ ] Ganti link CV dengan file CV Anda
-- [ ] Update project dengan project asli Anda
-- [ ] Test di berbagai device dan browser
-- [ ] Cek semua link berfungsi
-- [ ] Optimasi gambar (compress untuk loading cepat)
-
-## 🎓 Belajar Lebih Lanjut
-
-File ini sudah dilengkapi dengan komentar di setiap bagian penting:
-
-- **HTML**: Semantic structure dan accessibility
-- **CSS**: Design system, variables, dan responsive design
-- **JavaScript**: Data-driven rendering, DOM manipulation, events
-
-Baca komentar di setiap file untuk memahami cara kerjanya!
-
-## 📞 Support
-
-Jika ada pertanyaan atau butuh bantuan:
-1. Baca komentar di dalam kode
-2. Cek console browser untuk error messages
-3. Google error message yang muncul
-4. Eksperimen dengan mengubah nilai-nilai kecil dulu
-
-## 🎉 Selamat!
-
-Website portofolio Anda sudah siap! Tinggal customize dengan data pribadi dan deploy ke internet.
-
-**Good luck! 🚀**
+- **Efek Hover Terasa Canggung di Light Mode?**
+  Periksa kode `body.light-theme` didalam CSS, di sana dipisahkan spesifik selektor khusus transisi terang (`body.light-theme .home-social-btn:hover { ... }`).
+- **Pesan FormSubmit Error Mengirim?**
+  Pastikan koneksi Internet aktif. Eksekusi program membutuhkan pengiriman koneksi ke endpoint formsubmit. Jika tidak *live*/*online*, pastikan menonaktifkan properti AdBlocker secara sementara di browser saat diujicoba. Letak program ini ada di akhir `script.js`.
 
 ---
+*Made with ❤️ using HTML, CSS, and pure JavaScript.*
 
-Made with ❤️ using HTML, CSS, and JavaScript
