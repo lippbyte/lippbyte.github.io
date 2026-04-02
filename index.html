@@ -18,7 +18,7 @@
     <!-- Navbar -->
     <header class="header">
         <nav class="nav container">
-            <a href="#" class="nav-logo">Lipp<span>able.</span></a>
+            <a href="#" class="nav-logo">Lipp<span>byte</span></a>
             <div class="nav-menu" id="nav-menu">
                 <ul class="nav-list">
                     <li class="nav-item"><a href="#home" class="nav-link active-link">Home</a></li>
@@ -68,7 +68,7 @@
                 <div class="home-image">
                     <div class="home-blob">
                         <!-- Gunakan foto profil Anda di folder img/profile.jpg -->
-                        <img src="img/profile4.jpeg" alt="Profile Vector" class="home-img">
+                        <img src="img/profile9.png" alt="Profile Vector" class="home-img">
                     </div>
                 </div>
             </div>
@@ -116,126 +116,159 @@
             <h2 class="section-title">Skills & Tools</h2>
             <span class="section-subtitle">Teknologi yang saya pelajari & gunakan</span>
 
-            <div class="skills-container container grid">
-                
-                <!-- Frontend -->
-                <div class="skills-content">
-                    <h3 class="skills-title"><i class='bx bx-layout'></i> Frontend Development</h3>
-                    <div class="skills-box">
-                        <div class="skills-group">
-                            <div class="skills-data">
-                                <i class='bx bxl-html5 skills-icon'></i>
-                                <div>
-                                    <h4 class="skills-name">HTML</h4>
-                                    <span class="skills-level">Intermediate</span>
-                                </div>
-                            </div>
-                            <div class="skills-data">
-                                <i class='bx bxl-css3 skills-icon'></i>
-                                <div>
-                                    <h4 class="skills-name">CSS</h4>
-                                    <span class="skills-level">Intermediate</span>
-                                </div>
-                            </div>
-                            <div class="skills-data">
-                                <i class='bx bxl-javascript skills-icon'></i>
-                                <div>
-                                    <h4 class="skills-name">JavaScript</h4>
-                                    <span class="skills-level">Basic</span>
-                                </div>
-                            </div>
+            <!-- Filter Buttons -->
+            <div class="skills-filters container">
+                <button class="skills-filter-btn active" data-filter="all">All</button>
+                <button class="skills-filter-btn" data-filter="frontend">Frontend</button>
+                <button class="skills-filter-btn" data-filter="backend">Backend</button>
+                <button class="skills-filter-btn" data-filter="tools">Tools</button>
+                <button class="skills-filter-btn" data-filter="ai">AI</button>
+            </div>
+
+            <div class="skills-grid container">
+
+                <!-- HTML -->
+                <div class="skill-card" data-category="frontend">
+                    <div class="skill-card-header">
+                        <div class="skill-card-icon">
+                            <i class='bx bxl-html5'></i>
                         </div>
+                        <span class="skill-card-desc">Web structure & content</span>
                     </div>
+                    <h4 class="skill-card-name">HTML</h4>
+                    <span class="skill-card-category">FRONTEND</span>
                 </div>
 
-                <!-- Backend -->
-                <div class="skills-content">
-                    <h3 class="skills-title"><i class='bx bx-server'></i> Backend & Database</h3>
-                    <div class="skills-box">
-                        <div class="skills-group">
-                            <div class="skills-data">
-                                <i class='bx bxl-nodejs skills-icon'></i>
-                                <div>
-                                    <h4 class="skills-name">Node.js</h4>
-                                    <span class="skills-level">Basic</span>
-                                </div>
-                            </div>
-                            <div class="skills-data">
-                                <i class='bx bxl-php skills-icon'></i>
-                                <div>
-                                    <h4 class="skills-name">PHP</h4>
-                                    <span class="skills-level">Basic</span>
-                                </div>
-                            </div>
-                            <div class="skills-data">
-                                <i class='bx bx-data skills-icon'></i>
-                                <div>
-                                    <h4 class="skills-name">MySQL</h4>
-                                    <span class="skills-level">Basic</span>
-                                </div>
-                            </div>
+                <!-- CSS -->
+                <div class="skill-card" data-category="frontend">
+                    <div class="skill-card-header">
+                        <div class="skill-card-icon">
+                            <i class='bx bxl-css3'></i>
                         </div>
+                        <span class="skill-card-desc">Styling & layout</span>
                     </div>
+                    <h4 class="skill-card-name">CSS</h4>
+                    <span class="skill-card-category">FRONTEND</span>
                 </div>
 
-                <!-- Tools -->
-                <div class="skills-content">
-                    <h3 class="skills-title"><i class='bx bx-wrench'></i> Tools & Workflow</h3>
-                    <div class="skills-box">
-                        <div class="skills-group">
-                            <div class="skills-data">
-                                <i class='bx bxl-git skills-icon'></i>
-                                <div>
-                                    <h4 class="skills-name">Git & GitHub</h4>
-                                    <span class="skills-level">Intermediate</span>
-                                </div>
-                            </div>
-                            <div class="skills-data">
-                                <i class='bx bxl-figma skills-icon'></i>
-                                <div>
-                                    <h4 class="skills-name">Figma</h4>
-                                    <span class="skills-level">Basic</span>
-                                </div>
-                            </div>
-                            <div class="skills-data">
-                                <i class='bx bx-note skills-icon'></i>
-                                <div>
-                                    <h4 class="skills-name">Notion</h4>
-                                    <span class="skills-level">Intermediate</span>
-                                </div>
-                            </div>
+                <!-- JavaScript -->
+                <div class="skill-card" data-category="frontend">
+                    <div class="skill-card-header">
+                        <div class="skill-card-icon">
+                            <i class='bx bxl-javascript'></i>
                         </div>
+                        <span class="skill-card-desc">Core web logic</span>
                     </div>
+                    <h4 class="skill-card-name">JavaScript</h4>
+                    <span class="skill-card-category">FRONTEND</span>
                 </div>
 
-                <!-- AI / Data -->
-                <div class="skills-content">
-                    <h3 class="skills-title"><i class='bx bx-brain'></i> AI & Data</h3>
-                    <div class="skills-box">
-                        <div class="skills-group">
-                            <div class="skills-data">
-                                <i class='bx bxl-python skills-icon'></i>
-                                <div>
-                                    <h4 class="skills-name">Python</h4>
-                                    <span class="skills-level">Basic</span>
-                                </div>
-                            </div>
-                            <div class="skills-data">
-                                <i class='bx bx-bot skills-icon'></i>
-                                <div>
-                                    <h4 class="skills-name">Prompt Eng.</h4>
-                                    <span class="skills-level">Intermediate</span>
-                                </div>
-                            </div>
-                            <div class="skills-data">
-                                <i class='bx bx-scatter-chart skills-icon'></i>
-                                <div>
-                                    <h4 class="skills-name">Data Logic</h4>
-                                    <span class="skills-level">Basic</span>
-                                </div>
-                            </div>
+                <!-- Laravel -->
+                <div class="skill-card" data-category="backend">
+                    <div class="skill-card-header">
+                        <div class="skill-card-icon">
+                            <i class='bx bxl-laravel'></i>
                         </div>
+                        <span class="skill-card-desc">REST API development</span>
                     </div>
+                    <h4 class="skill-card-name">Laravel</h4>
+                    <span class="skill-card-category">BACKEND</span>
+                </div>
+
+                <!-- PHP -->
+                <div class="skill-card" data-category="backend">
+                    <div class="skill-card-header">
+                        <div class="skill-card-icon">
+                            <i class='bx bxl-php'></i>
+                        </div>
+                        <span class="skill-card-desc">Server-side scripting</span>
+                    </div>
+                    <h4 class="skill-card-name">PHP</h4>
+                    <span class="skill-card-category">BACKEND</span>
+                </div>
+
+                <!-- MySQL -->
+                <div class="skill-card" data-category="backend">
+                    <div class="skill-card-header">
+                        <div class="skill-card-icon">
+                            <i class='bx bx-data'></i>
+                        </div>
+                        <span class="skill-card-desc">Relational database</span>
+                    </div>
+                    <h4 class="skill-card-name">MySQL</h4>
+                    <span class="skill-card-category">BACKEND</span>
+                </div>
+
+                <!-- Git & GitHub -->
+                <div class="skill-card" data-category="tools">
+                    <div class="skill-card-header">
+                        <div class="skill-card-icon">
+                            <i class='bx bxl-git'></i>
+                        </div>
+                        <span class="skill-card-desc">Version control</span>
+                    </div>
+                    <h4 class="skill-card-name">Git & GitHub</h4>
+                    <span class="skill-card-category">TOOLS</span>
+                </div>
+
+                <!-- Google Apps -->
+                <div class="skill-card" data-category="tools">
+                    <div class="skill-card-header">
+                        <div class="skill-card-icon">
+                            <i class='bx bxl-google'></i>
+                        </div>
+                        <span class="skill-card-desc">Productivity suite</span>
+                    </div>
+                    <h4 class="skill-card-name">Google Apps</h4>
+                    <span class="skill-card-category">TOOLS</span>
+                </div>
+
+                <!-- Notion -->
+                <div class="skill-card" data-category="tools">
+                    <div class="skill-card-header">
+                        <div class="skill-card-icon">
+                            <i class='bx bx-note'></i>
+                        </div>
+                        <span class="skill-card-desc">Project management</span>
+                    </div>
+                    <h4 class="skill-card-name">Notion</h4>
+                    <span class="skill-card-category">TOOLS</span>
+                </div>
+
+                <!-- Antigravity -->
+                <div class="skill-card" data-category="ai">
+                    <div class="skill-card-header">
+                        <div class="skill-card-icon">
+                            <i class='bx bxl-antigravity'></i>
+                        </div>
+                        <span class="skill-card-desc">AI Code Assistant</span>
+                    </div>
+                    <h4 class="skill-card-name">Antigravity</h4>
+                    <span class="skill-card-category">AI</span>
+                </div>
+
+                <!-- Prompt Engineer -->
+                <div class="skill-card" data-category="ai">
+                    <div class="skill-card-header">
+                        <div class="skill-card-icon">
+                            <i class='bx bx-bot'></i>
+                        </div>
+                        <span class="skill-card-desc">AI interaction design</span>
+                    </div>
+                    <h4 class="skill-card-name">Prompt Engineer</h4>
+                    <span class="skill-card-category">AI</span>
+                </div>
+
+                <!-- Data Logic -->
+                <div class="skill-card" data-category="ai">
+                    <div class="skill-card-header">
+                        <div class="skill-card-icon">
+                            <i class='bx bx-scatter-chart'></i>
+                        </div>
+                        <span class="skill-card-desc">Data analysis basics</span>
+                    </div>
+                    <h4 class="skill-card-name">Data Logic</h4>
+                    <span class="skill-card-category">AI</span>
                 </div>
 
             </div>

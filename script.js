@@ -90,6 +90,33 @@ if(yearEl) {
     yearEl.textContent = new Date().getFullYear();
 }
 
+/*==================== SKILLS FILTER ====================*/
+const filterBtns = document.querySelectorAll('.skills-filter-btn');
+const skillCards = document.querySelectorAll('.skill-card');
+
+filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+        // Remove active class from all buttons
+        filterBtns.forEach(b => b.classList.remove('active'));
+        // Add active class to clicked button
+        btn.classList.add('active');
+
+        const filterValue = btn.getAttribute('data-filter');
+
+        skillCards.forEach(card => {
+            const category = card.getAttribute('data-category');
+
+            if (filterValue === 'all' || category === filterValue) {
+                card.classList.remove('hide');
+                card.classList.add('show');
+            } else {
+                card.classList.remove('show');
+                card.classList.add('hide');
+            }
+        });
+    });
+});
+
 /*==================== TYPEWRITER EFFECT ====================*/
 const texts = ["Software Development Learner", "Problem Solver", "AI Enthusiast", "Building Real Solutions"];
 let count = 0;
