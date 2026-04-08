@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#1a1435">
     <title>Lippbyte | Portofolio</title>
-    <meta name="description" content="Portfolio siswa SMK yang mengeksplorasi web development dan AI.">
+    <meta name="description" content="Portfolio Muhammad Khalifa — siswa SMK yang mengeksplorasi web development dan AI. Builder, learner, problem solver.">
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -19,6 +20,7 @@
     <header class="header">
         <nav class="nav container">
             <a href="#" class="nav-logo">Lipp<span>byte.</span></a>
+            <div class="nav-overlay" id="nav-overlay"></div>
             <div class="nav-menu" id="nav-menu">
                 <ul class="nav-list">
                     <li class="nav-item"><a href="#home" class="nav-link active-link">Home</a></li>
@@ -84,7 +86,7 @@
 
             <div class="about-container container grid">
                 <div class="about-img-wrapper">
-                    <img src="img/about.png" alt="About Me" class="about-img">
+                    <img src="img/about.png" alt="About Me" class="about-img" loading="lazy">
                 </div>
                 <div class="about-data">
                     <p class="about-description">
@@ -268,7 +270,7 @@
                 <!-- Project 1 -->
                 <article class="projects-card">
                     <div class="projects-img-wrapper">
-                        <img src="img/smi.png" alt="Sistem Manajemen Informasi - SMAN 23 Bandung" class="projects-img">
+                        <img src="img/smi.png" alt="Sistem Manajemen Informasi - SMAN 23 Bandung" class="projects-img" loading="lazy">
                     </div>
                     <div class="projects-content">
                         <h3 class="projects-title">Sistem Manajemen Informasi - SMAN 23 Bandung</h3>
@@ -289,7 +291,7 @@
                 <!-- Project 2 -->
                 <article class="projects-card">
                     <div class="projects-img-wrapper">
-                        <img src="img/gudangbarangjava.png" alt="Aplikasi Manajemen Stok - GudangBarang" class="projects-img">
+                        <img src="img/gudangbarangjava.png" alt="Aplikasi Manajemen Stok - GudangBarang" class="projects-img" loading="lazy">
                     </div>
                     <div class="projects-content">
                         <h3 class="projects-title">Aplikasi Manajemen Stok - GudangBarang</h3>
@@ -309,7 +311,7 @@
                 <!-- Project 3 -->
                 <article class="projects-card">
                     <div class="projects-img-wrapper">
-                        <img src="img/android.jpeg" alt="Aplikasi Manajemen Stok berbasis Android" class="projects-img">
+                        <img src="img/android.jpeg" alt="Aplikasi Manajemen Stok berbasis Android" class="projects-img" loading="lazy">
                     </div>
                     <div class="projects-content">
                         <h3 class="projects-title">Aplikasi Manajemen Stok berbasis Android</h3>
@@ -323,6 +325,7 @@
                         </div>
                         <div class="projects-buttons">
                             <a href="https://github.com/lippbyte/gudangbarang-android" class="button button-small button-outline"><i class='bx bxl-github'></i> GitHub</a>
+                        </div>
                     </div>
                 </article>
             </div>
