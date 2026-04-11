@@ -18,24 +18,39 @@ const navMenu = document.getElementById('nav-menu'),
       navClose = document.getElementById('nav-close'),
       navOverlay = document.getElementById('nav-overlay');
 
-function openMenu() {
-    if (navMenu) navMenu.classList.add('show-menu');
-    if (navOverlay) navOverlay.classList.add('show-overlay');
-    document.body.style.overflow = 'hidden'; // Prevent background scroll
+function toggleMenu() {
+    if (navMenu) navMenu.classList.toggle('show-menu');
+    if (navOverlay) navOverlay.classList.toggle('show-overlay');
+    
+    const isOpen = navMenu.classList.contains('show-menu');
+    document.body.style.overflow = isOpen ? 'hidden' : '';
+    
+    const icon = navToggle.querySelector('i');
+    if (icon) {
+        if (isOpen) {
+            icon.classList.remove('bx-grid-alt');
+            icon.classList.add('bx-x');
+        } else {
+            icon.classList.remove('bx-x');
+            icon.classList.add('bx-grid-alt');
+        }
+    }
 }
 
 function closeMenu() {
     if (navMenu) navMenu.classList.remove('show-menu');
     if (navOverlay) navOverlay.classList.remove('show-overlay');
     document.body.style.overflow = '';
+    
+    const icon = navToggle.querySelector('i');
+    if (icon) {
+        icon.classList.remove('bx-x');
+        icon.classList.add('bx-grid-alt');
+    }
 }
 
 if (navToggle) {
-    navToggle.addEventListener('click', openMenu);
-}
-
-if (navClose) {
-    navClose.addEventListener('click', closeMenu);
+    navToggle.addEventListener('click', toggleMenu);
 }
 
 // Close menu when clicking overlay
