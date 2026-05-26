@@ -1,0 +1,76 @@
+You are given a task to convert and integrate an existing React animation component into a pure HTML, Vanilla JavaScript, and Tailwind CSS (via CDN/CLI) project structure.
+
+The codebase supports:
+- Standard HTML5 project structure (index.html, css/custom.css, js/main.js)
+- Tailwind CSS styling
+- NO frameworks (No React, No Next.js)
+
+[COMPONET TRANSFORMATION REQUIREMENTS]
+1. Remove the "dots" pattern entirely from the original gradient logic.
+2. Maintain the smooth, infinite moving background animation using pure CSS Keyframes or Tailwind arbitrary classes.
+3. Adapt the color palette to match the user's Portfolio 2.0 theme:
+   - Deep Background: Slate Dark (#020617 or #0F172A)
+   - Accent 1 (Teal): #14A7A0
+   - Accent 2 (Pink/Rose): #F76B8A
+
+Please generate the code following these file instructions:
+
+---
+File: css/custom.css
+---
+/* Insert the pure CSS implementation of the dynamic fluid gradient without dots */
+@keyframes fluidGradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.portfolio-fluid-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background: linear-gradient(-45deg, #020617, #14A7A0, #F76B8A, #0F172A);
+  background-size: 400% 400%;
+  animation: fluidGradient 20s ease infinite;
+  opacity: 0.15; /* Kept lowkey and balanced so it doesn't strain the eyes */
+  pointer-events: none;
+}
+
+/* Optional: Adding a soft blur layer on top to make it look like an ambient aura */
+.ambient-blur {
+  position: absolute;
+  inset: 0;
+  backdrop-filter: blur(80px);
+  -webkit-backdrop-filter: blur(80px);
+  z-index: 1;
+}
+
+---
+File: index.html (Snippet Placement for Hero Section)
+---
+<section class="relative min-h-screen w-full bg-slate-950 flex items-center justify-center overflow-hidden">
+  
+  <div class="portfolio-fluid-bg"></div>
+  <div class="ambient-blur"></div>
+
+  <div class="relative z-10 text-center px-4">
+    <h1 class="font-['Space_Grotesk'] text-5xl md:text-7xl font-bold text-slate-50 tracking-tight">
+      Elevate Your <span class="text-[#14A7A0]">Digital Vision</span>
+    </h1>
+    <p class="font-['Urbanist'] text-slate-400 mt-4 text-lg md:text-xl max-w-xl mx-auto">
+      Crafting exceptional digital experiences through innovative design and cutting-edge technology.
+    </p>
+  </div>
+</section>
+
+---
+Implementation Guidelines:
+1. Ensure that the text fonts match the requested Google Fonts ('Space Grotesk' & 'Urbanist').
+2. The animation must be buttery smooth and lowkey (not flashy), maximizing mobile-first readability.
+3. No external NPM dependencies like framer-motion are allowed; rely entirely on CSS transitions and animations.

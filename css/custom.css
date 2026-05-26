@@ -1,0 +1,326 @@
+/* ========================================================================
+   CUSTOM CSS FOR PORTFOLIO 2.0 (MUHAMMAD KHALIFA)
+   Contains style rules not natively supported by standard Tailwind
+   ======================================================================== */
+
+/* --- GOOGLE FONTS INTEGRATION --- */
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Urbanist:wght@300;400;500;600;700;800&display=swap');
+
+body {
+    font-family: 'Urbanist', sans-serif;
+    background-color: #020617;
+    color: #F8FAFC;
+    overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6, .font-heading {
+    font-family: 'Space Grotesk', sans-serif;
+}
+
+/* --- SPOTLIGHT CARD EFFECT (60fps.design style) --- */
+.spotlight-card {
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.spotlight-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    /* Radial gradient tracking the mouse coordinates */
+    background: radial-gradient(400px circle at var(--mouse-x, 0px) var(--mouse-y, 0px), rgba(20, 167, 160, 0.12), transparent 40%);
+    z-index: 1;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.spotlight-card:hover::before {
+    opacity: 1;
+}
+
+/* Make sure elements inside the card are above the spotlight gradient overlay */
+.spotlight-card > * {
+    position: relative;
+    z-index: 2;
+}
+
+/* --- GLOW EFFECTS --- */
+.glow-teal-hover:hover {
+    box-shadow: 0 0 25px rgba(20, 167, 160, 0.3);
+    border-color: rgba(20, 167, 160, 0.5);
+}
+
+.glow-rose-hover:hover {
+    box-shadow: 0 0 25px rgba(247, 107, 138, 0.3);
+    border-color: rgba(247, 107, 138, 0.5);
+}
+
+/* --- ANIMATIONS --- */
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-8px);
+    }
+}
+
+.animate-float {
+    animation: float 4s ease-in-out infinite;
+}
+
+/* Typewriter blinking cursor */
+.typewriter-cursor {
+    display: inline-block;
+    background-color: currentColor;
+    width: 2px;
+    height: 1.1em;
+    vertical-align: middle;
+    margin-left: 2px;
+    animation: cursor-blink 0.8s infinite;
+}
+
+@keyframes cursor-blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+/* --- SCROLLBAR CUSTOMIZATION --- */
+/* Global Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #020617;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #0f172a;
+    border: 2px solid #020617;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #14A7A0;
+}
+
+/* Modal Inner Scrollbar */
+.modal-scroll::-webkit-scrollbar {
+    width: 6px;
+}
+
+.modal-scroll::-webkit-scrollbar-track {
+    background: rgba(15, 23, 42, 0.5);
+    border-radius: 4px;
+}
+
+.modal-scroll::-webkit-scrollbar-thumb {
+    background: rgba(20, 167, 160, 0.2);
+    border-radius: 4px;
+}
+
+.modal-scroll::-webkit-scrollbar-thumb:hover {
+    background: rgba(20, 167, 160, 0.6);
+}
+
+/* --- GLASSMORPHISM BASE --- */
+.glass-panel {
+    background: rgba(15, 23, 42, 0.6);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* --- SCROLL TIMELINE DASHED LINE --- */
+.journey-timeline::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 15px;
+    width: 2px;
+    border-left: 2px dashed #334155;
+}
+
+@media (min-width: 768px) {
+    .journey-timeline::before {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}
+
+/* Fade in class from intersection observer */
+.fade-in-section {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.fade-in-section.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* --- ANIMATED FLUID GRADIENT BACKGROUND (WITHOUT DOTS) --- */
+@keyframes fluidGradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.portfolio-fluid-bg {
+  position: fixed;
+  inset: 0;
+  z-index: -2; /* Render behind everything! */
+  background: linear-gradient(-45deg, #020617, #14A7A0, #F76B8A, #0F172A);
+  background-size: 400% 400%;
+  animation: fluidGradient 20s ease infinite;
+  opacity: 0.15; /* Kept lowkey and balanced so it doesn't strain the eyes */
+  pointer-events: none;
+}
+
+/* soft blur layer on top to make it look like an ambient aura */
+.ambient-blur {
+  position: fixed;
+  inset: 0;
+  backdrop-filter: blur(80px);
+  -webkit-backdrop-filter: blur(80px);
+  z-index: -1; /* Above gradient, below content */
+  pointer-events: none;
+}
+
+/* --- CUSTOM SOCIAL BUTTONS (HOMEPAGE) --- */
+.example-2 {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: row;
+    padding: 0;
+    margin: 0;
+}
+
+.example-2 .icon-content {
+    margin-right: 15px;
+    position: relative;
+    list-style: none;
+}
+
+.example-2 .icon-content .tooltip {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, 0) scale(0.8);
+    color: #fff;
+    padding: 6px 12px;
+    border-radius: 8px;
+    opacity: 0;
+    visibility: hidden;
+    font-size: 12px;
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 600;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    white-space: nowrap;
+    z-index: 20;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+}
+
+.example-2 .icon-content:hover .tooltip {
+    opacity: 1;
+    visibility: visible;
+    top: -45px;
+    transform: translate(-50%, 0) scale(1);
+}
+
+.example-2 .icon-content a {
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    color: #94A3B8; /* Muted color in dark mode */
+    background-color: #0f172a; /* Slate 900 */
+    border: 1px solid #1e293b; /* Slate 800 */
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.example-2 .icon-content a svg {
+    position: relative;
+    z-index: 2;
+    width: 18px;
+    height: 18px;
+    transition: transform 0.3s ease;
+}
+
+.example-2 .icon-content a:hover svg {
+    transform: scale(1.15);
+}
+
+.example-2 .icon-content a:hover {
+    color: #ffffff;
+    border-color: transparent;
+    box-shadow: 0 0 15px currentColor;
+}
+
+.example-2 .icon-content a .filled {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 0;
+    z-index: 1;
+    transition: all 0.3s ease-in-out;
+}
+
+.example-2 .icon-content a:hover .filled {
+    height: 100%;
+}
+
+/* Social media colors */
+.example-2 .icon-content a[data-social="linkedin"] .filled,
+.example-2 .icon-content a[data-social="linkedin"] ~ .tooltip {
+    background-color: #0274b3;
+}
+.example-2 .icon-content a[data-social="linkedin"]:hover {
+    color: #ffffff;
+    box-shadow: 0 0 15px rgba(2, 116, 179, 0.4);
+}
+
+.example-2 .icon-content a[data-social="github"] .filled,
+.example-2 .icon-content a[data-social="github"] ~ .tooltip {
+    background-color: #24262a;
+}
+.example-2 .icon-content a[data-social="github"]:hover {
+    color: #ffffff;
+    box-shadow: 0 0 15px rgba(36, 38, 42, 0.4);
+}
+
+.example-2 .icon-content a[data-social="instagram"] .filled,
+.example-2 .icon-content a[data-social="instagram"] ~ .tooltip {
+    background: linear-gradient(45deg, #405de6, #5b51db, #b33ab4, #c135b4, #e1306c, #fd1f1f);
+}
+.example-2 .icon-content a[data-social="instagram"]:hover {
+    color: #ffffff;
+    box-shadow: 0 0 15px rgba(225, 48, 108, 0.4);
+}
+
+.example-2 .icon-content a[data-social="email"] .filled,
+.example-2 .icon-content a[data-social="email"] ~ .tooltip {
+    background-color: #14A7A0;
+}
+.example-2 .icon-content a[data-social="email"]:hover {
+    color: #ffffff;
+    box-shadow: 0 0 15px rgba(20, 167, 160, 0.4);
+}

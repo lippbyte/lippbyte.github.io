@@ -1,483 +1,936 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="id" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#1a1435">
-    <title>Lippbyte | Portofolio</title>
-    <meta name="description" content="Portfolio Muhammad Khalifa — siswa SMK yang mengeksplorasi web development dan AI. Builder, learner, problem solver.">
+    <meta name="theme-color" content="#020617">
+    <title>Muhammad Khalifa | Portofolio 2.0</title>
+    
+    <meta name="description" content="Portfolio Muhammad Khalifa — siswa RPL SMKN 4 Bandung yang mengeksplorasi web development dan AI. Creative builder, learner, problem solver.">
+    
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
-    <!-- Boxicons -->
+    
+    <!-- Boxicons for compatibility -->
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="style.css">
+    <!-- FontAwesome for modern visual icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Tailwind CSS Play CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        slate: {
+                            950: '#020617',
+                            900: '#0f172a',
+                            800: '#1e293b',
+                            400: '#94A3B8',
+                            50: '#F8FAFC',
+                        },
+                        teal: {
+                            500: '#14A7A0',
+                            400: '#2dd4bf',
+                            950: '#042f2e',
+                        },
+                        rose: {
+                            400: '#F76B8A',
+                            950: '#4c0519',
+                        }
+                    },
+                    fontFamily: {
+                        heading: ['Space Grotesk', 'sans-serif'],
+                        body: ['Urbanist', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Custom stylesheet containing spotlight and animations -->
+    <link rel="stylesheet" href="css/custom.css">
 </head>
-<body>
-    <!-- Navbar -->
-    <header class="header">
-        <nav class="nav container">
-            <a href="#" class="nav-logo">Lipp<span>byte.</span></a>
-            <div class="nav-overlay" id="nav-overlay"></div>
-            <div class="nav-menu" id="nav-menu">
-                <ul class="nav-list">
-                    <li class="nav-item"><a href="#home" class="nav-link active-link">Home</a></li>
-                    <li class="nav-item"><a href="#about" class="nav-link">About</a></li>
-                    <li class="nav-item"><a href="#skills" class="nav-link">Skills</a></li>
-                    <li class="nav-item"><a href="#projects" class="nav-link">Project</a></li>
-                    <li class="nav-item"><a href="#journey" class="nav-link">Journey</a></li>
-                    <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
-                </ul>
-                <div class="nav-close" id="nav-close">
-                    <i class='bx bx-x'></i>
-                </div>
+<body class="bg-slate-950 text-slate-50 font-body antialiased relative">
+    <div class="portfolio-fluid-bg"></div>
+    <div class="ambient-blur"></div>
+
+    <!-- Navigasi / Header -->
+    <header class="fixed top-0 left-0 w-full z-40 transition-all duration-300 py-6 bg-transparent">
+        <nav class="max-w-6xl mx-auto px-6 flex items-center justify-between">
+            <!-- Logo -->
+            <a href="#" class="text-2xl font-bold tracking-tight text-white font-heading">
+                Lipp<span class="text-rose-400">byte.</span>
+            </a>
+
+            <!-- Desktop Menu -->
+            <ul class="hidden md:flex items-center space-x-8 text-sm tracking-wide">
+                <li><a href="#home" class="nav-link text-teal-400 font-semibold transition-colors duration-300">Home</a></li>
+                <li><a href="#about" class="nav-link text-slate-400 hover:text-teal-400 transition-colors duration-300">About</a></li>
+                <li><a href="#skills" class="nav-link text-slate-400 hover:text-teal-400 transition-colors duration-300">Skills</a></li>
+                <li><a href="#projects" class="nav-link text-slate-400 hover:text-teal-400 transition-colors duration-300">Project</a></li>
+                <li><a href="#journey" class="nav-link text-slate-400 hover:text-teal-400 transition-colors duration-300">Journey</a></li>
+                <li><a href="#contact" class="nav-link text-slate-400 hover:text-teal-400 transition-colors duration-300">Contact</a></li>
+            </ul>
+
+            <!-- CTA / Contact Toggle (Desktop Only) -->
+            <div class="hidden md:block">
+                <a href="#contact" class="px-5 py-2.5 rounded-full text-xs font-semibold uppercase tracking-wider bg-slate-900/60 border border-slate-800 text-slate-200 hover:border-teal-500 hover:text-teal-400 transition-all duration-300">
+                    Let's Chat
+                </a>
             </div>
-            <div class="nav-btns">
-                <i class='bx bx-moon change-theme' id="theme-button"></i>
-                <div class="nav-toggle" id="nav-toggle">
-                    <i class='bx bx-grid-alt'></i>
-                </div>
-            </div>
+
+            <!-- Hamburger Button (Mobile Only) -->
+            <button id="nav-toggle" class="md:hidden text-2xl text-slate-100 hover:text-teal-400 transition-colors focus:outline-none" aria-label="Toggle Menu">
+                <i class="fas fa-bars"></i>
+            </button>
         </nav>
     </header>
 
-    <main class="main">
-        <!-- Hero Section -->
-        <section class="home section fade-in" id="home">
-            <div class="home-container container grid">
-                <div class="home-content">
-                    <span class="home-subtitle">Halo, perkenalkan saya</span><br>
-                    <h1 class="home-title title-gradient">Muhammad Khalifa</h1>
-                    <h3 class="home-education"><span class="typewriter-text"></span><span class="typewriter-cursor">|</span></h3>
-                    <p class="home-description">
-                        Saya adalah siswa SMK yang tertarik membangun solusi nyata menggunakan web development dan AI. Saat ini saya sedang mengeksplorasi bagaimana teknologi dapat membantu memecahkan masalah yang ada pada manusia
+    <!-- Mobile Drawer Overlay -->
+    <div id="nav-overlay" class="fixed inset-0 bg-black/70 backdrop-blur-md z-40 opacity-0 pointer-events-none transition-opacity duration-300"></div>
+
+    <!-- Mobile Navigation Drawer -->
+    <div id="nav-menu" class="fixed top-0 right-0 h-full w-[280px] bg-slate-900/95 border-l border-slate-800/80 z-50 p-8 transform translate-x-full transition-transform duration-300 ease-in-out shadow-2xl flex flex-col">
+        <!-- Close Button -->
+        <button id="nav-close" class="absolute top-6 right-6 text-2xl text-slate-400 hover:text-rose-400 transition-colors focus:outline-none" aria-label="Close Menu">
+            <i class="fas fa-times"></i>
+        </button>
+
+        <div class="mt-12 flex-1">
+            <span class="text-xs uppercase tracking-widest text-slate-500 font-bold">Navigasi</span>
+            <ul class="flex flex-col space-y-6 text-lg mt-6 font-heading font-medium">
+                <li><a href="#home" class="nav-link text-teal-400 block py-1">Home</a></li>
+                <li><a href="#about" class="nav-link text-slate-300 hover:text-teal-400 block py-1">About</a></li>
+                <li><a href="#skills" class="nav-link text-slate-300 hover:text-teal-400 block py-1">Skills</a></li>
+                <li><a href="#projects" class="nav-link text-slate-300 hover:text-teal-400 block py-1">Project</a></li>
+                <li><a href="#journey" class="nav-link text-slate-300 hover:text-teal-400 block py-1">Journey</a></li>
+                <li><a href="#contact" class="nav-link text-slate-300 hover:text-teal-400 block py-1">Contact</a></li>
+            </ul>
+        </div>
+
+        <!-- Footer inside drawer -->
+        <div class="border-t border-slate-800 pt-6">
+            <div class="flex space-x-4 text-slate-400 text-lg mb-4">
+                <a href="https://github.com/lippbyte" target="_blank" class="hover:text-teal-400 transition-colors"><i class="fab fa-github"></i></a>
+                <a href="https://linkedin.com/in/muhammad-khalifa-72611b3b8" target="_blank" class="hover:text-teal-400 transition-colors"><i class="fab fa-linkedin"></i></a>
+                <a href="https://instagram.com/_alipbatasa_" target="_blank" class="hover:text-rose-400 transition-colors"><i class="fab fa-instagram"></i></a>
+            </div>
+            <span class="text-xs text-slate-500 font-medium">© 2026 Lippbyte.</span>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="pt-20">
+
+        <!-- HERO SECTION -->
+        <section id="home" class="min-h-[85vh] flex items-center px-6 relative overflow-hidden py-12 md:py-24">
+            <!-- Background Glow Ornaments -->
+            <div class="absolute top-1/4 left-1/4 w-80 h-80 bg-teal-500/10 rounded-full blur-3xl opacity-60"></div>
+            <div class="absolute bottom-1/4 right-1/4 w-80 h-80 bg-rose-500/10 rounded-full blur-3xl opacity-60"></div>
+
+            <div class="max-w-6xl mx-auto w-full grid grid-cols-1 md:grid-cols-2 gap-12 items-center relative z-10">
+                <!-- Left: Hero Text -->
+                <div class="space-y-6 text-left order-2 md:order-1">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-900 border border-slate-800 text-xs font-semibold text-teal-400 tracking-wider">
+                        <span class="w-1.5 h-1.5 rounded-full bg-teal-400 animate-ping"></span>
+                        AI ENTHUSIAST
+                    </div>
+                    
+                    <div class="space-y-3">
+                        <span class="text-slate-400 font-medium text-lg">Halo, perkenalkan saya</span>
+                        <h1 class="text-4xl md:text-6xl font-bold tracking-tight leading-tight text-white font-heading">
+                            Muhammad <span class="bg-gradient-to-r from-teal-400 via-emerald-400 to-rose-400 bg-clip-text text-transparent">Khalifa</span>
+                        </h1>
+                        <h3 class="text-xl md:text-2xl font-medium text-slate-200 h-8">
+                            <span class="typewriter-text text-teal-400 font-heading"></span><span class="typewriter-cursor"></span>
+                        </h3>
+                    </div>
+                    
+                    <p class="text-slate-400 text-base md:text-lg max-w-lg leading-relaxed font-body">
+                        Saya adalah siswa SMK jurusan Rekayasa Perangkat Lunak (RPL) yang gemar membangun solusi nyata dengan web development dan kecerdasan buatan. Sat-set, percaya diri, <span class="text-rose-400 font-semibold italic">straight to the point.</span>
                     </p>
-                    <div class="home-buttons">
-                        <a href="#projects" class="button button-gradient">Lihat Project <i class='bx bx-right-arrow-alt button-icon'></i></a>
-                        <a href="#contact" class="button button-outline">Hubungi Saya</a>
-                    </div>
-                    <div class="home-socials">
-                        <a href="https://github.com/lippbyte" target="_blank" class="home-social-btn" aria-label="GitHub">
-                            <i class='bx bxl-github'></i>
+
+                    <!-- Buttons -->
+                    <div class="flex flex-wrap gap-4 pt-2">
+                        <a href="#projects" class="group relative px-6 py-3.5 bg-teal-500 hover:bg-teal-400 text-slate-950 font-bold rounded-xl text-sm transition-all duration-300 flex items-center gap-2 shadow-[0_0_20px_rgba(20,167,160,0.25)] hover:shadow-[0_0_30px_rgba(20,167,160,0.45)]">
+                            Lihat Project
+                            <i class="fas fa-arrow-right text-xs group-hover:translate-x-1 transition-transform"></i>
                         </a>
-                        <a href="https://linkedin.com/in/muhammad-khalifa-72611b3b8" target="_blank" class="home-social-btn" aria-label="LinkedIn">
-                            <i class='bx bxl-linkedin-square'></i>
-                        </a>
-                        <a href="https://instagram.com/_alipbatasa_" target="_blank" class="home-social-btn" aria-label="Instagram">
-                            <i class='bx bxl-instagram'></i>
+                        <a href="#contact" class="px-6 py-3.5 bg-slate-900/80 hover:bg-slate-800 border border-slate-800 text-slate-200 hover:text-white font-semibold rounded-xl text-sm transition-all duration-300">
+                            Hubungi Saya
                         </a>
                     </div>
+
+                    <!-- Social Media Links -->
+                    <div class="flex items-center gap-4 pt-6">
+                        <span class="text-xs uppercase tracking-widest text-slate-600 font-bold">Temukan saya:</span>
+                        <ul class="example-2">
+                          <li class="icon-content">
+                            <a
+                              href="https://linkedin.com/in/muhammad-khalifa-72611b3b8"
+                              target="_blank"
+                              aria-label="LinkedIn"
+                              data-social="linkedin"
+                            >
+                              <div class="filled"></div>
+                              <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="16"
+                                height="16"
+                                fill="currentColor"
+                                class="bi bi-linkedin"
+                                viewBox="0 0 16 16"
+                                xml:space="preserve"
+                              >
+                                <path
+                                  d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854zm4.943 12.248V6.169H2.542v7.225zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248S2.4 3.226 2.4 3.934c0 .694.521 1.248 1.327 1.248zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016l.016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225z"
+                                  fill="currentColor"
+                                ></path>
+                              </svg>
+                            </a>
+                            <div class="tooltip">LinkedIn</div>
+                          </li>
+                          <li class="icon-content">
+                            <a 
+                              href="https://github.com/lippbyte" 
+                              target="_blank" 
+                              aria-label="GitHub" 
+                              data-social="github"
+                            >
+                              <div class="filled"></div>
+                              <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="16"
+                                height="16"
+                                fill="currentColor"
+                                class="bi bi-github"
+                                viewBox="0 0 16 16"
+                                xml:space="preserve"
+                              >
+                                <path
+                                  d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8"
+                                  fill="currentColor"
+                                ></path>
+                              </svg>
+                            </a>
+                            <div class="tooltip">GitHub</div>
+                          </li>
+                          <li class="icon-content">
+                            <a
+                              href="https://instagram.com/_alipbatasa_"
+                              target="_blank"
+                              aria-label="Instagram"
+                              data-social="instagram"
+                            >
+                              <div class="filled"></div>
+                              <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="16"
+                                height="16"
+                                fill="currentColor"
+                                class="bi bi-instagram"
+                                viewBox="0 0 16 16"
+                                xml:space="preserve"
+                              >
+                                <path
+                                  d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.9 3.9 0 0 0-1.417.923A3.9 3.9 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.9 3.9 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.9 3.9 0 0 0-.923-1.417A3.9 3.9 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599s.453.546.598.92c.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.5 2.5 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.5 2.5 0 0 1-.92-.598 2.5 2.5 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233s.008-2.388.046-3.231c.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92s.546-.453.92-.598c.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92m-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217m0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334"
+                                  fill="currentColor"
+                                ></path>
+                              </svg>
+                            </a>
+                            <div class="tooltip">Instagram</div>
+                          </li>
+                          <li class="icon-content">
+                            <a
+                              href="mailto:muhammad.khalifa3289@gmail.com"
+                              aria-label="Email"
+                              data-social="email"
+                            >
+                              <div class="filled"></div>
+                              <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="16"
+                                height="16"
+                                fill="currentColor"
+                                class="bi bi-envelope-fill"
+                                viewBox="0 0 16 16"
+                                xml:space="preserve"
+                              >
+                                <path
+                                  d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414.05 3.555ZM0 4.697v7.104l5.803-3.558zM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586l-.639-.395L6.761 8.83Zm5.436-.562L18 11.801V4.697z"
+                                  fill="currentColor"
+                                ></path>
+                              </svg>
+                            </a>
+                            <div class="tooltip">Email</div>
+                          </li>
+                        </ul>
+                    </div>
                 </div>
-                <div class="home-image">
-                    <div class="home-blob">
-                        <!-- Gunakan foto profil Anda di folder img/profile.jpg -->
-                        <img src="img/profilee.png" alt="Profile Vector" class="home-img">
+
+                <!-- Right: Profile Image -->
+                <div class="relative flex justify-center items-center order-1 md:order-2">
+                    <!-- Transparent profile image container without border -->
+                    <div class="relative w-64 h-64 md:w-[420px] md:h-[420px]">
+                        <img src="assets/img/profilee.png" alt="Muhammad Khalifa" class="w-full h-full object-contain object-bottom scale-105">
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- About Section -->
-        <section class="about section fade-in" id="about">
-            <h2 class="section-title">Tentang Saya</h2>
-            <span class="section-subtitle">Learner, Builder & Problem Solver</span>
-
-            <div class="about-container container grid">
-                <div class="about-img-wrapper">
-                    <img src="img/about.png" alt="About Me" class="about-img" loading="lazy">
-                </div>
-                <div class="about-data">
-                    <p class="about-description">
-                        Saya adalah seorang pembelajar yang penuh rasa ingin tahu dan selalu antusias 
-                        dalam memahami cara kerja teknologi. Sebagai seorang <b>builder</b> dan <b>problem solver</b>, 
-                        saya tidak hanya sekadar belajar teori, namun juga berusaha mengimplementasikannya 
-                        ke dalam karya yang bermanfaat.
-                    </p>
-                    <p class="about-description">
-                        Proses belajar selalu menjadi dorongan terbesar saya. Dengan mempelajari,
-                        menggunakan, dan memanfaatkan Artificial Intelligence, saya mencoba menciptakan 
-                        sebuah karya berupa teknologi yang dapat menyelesaikan permasalahan nyata dan 
-                        membantu orang banyak serta mempermudah pekerjaan manusia hari ini hingga di masa depan.
-                    </p>
-                    <div class="about-info grid">
-                        <div href="#skills" class="about-box">
-                            <i class='bx bx-code-alt about-icon'></i>
-                            <h3 class="about-title">Pengalaman</h3>
-                            <span class="about-subtitle">1+ Tahun Belajar</span>
-                        </div>
-                        <div href="#projects" class="about-box">
-                            <i class='bx bx-briefcase-alt about-icon'></i>
-                            <h3 class="about-title">Selesai</h3>
-                            <span class="about-subtitle">5+ Mini Project</span>
-                        </div>
-                        <div href="https://smkn4bdg.sch.id/" target="_blank" class="about-box">
-                            <i class='bx bx-support about-icon'></i>
-                            <h3 class="about-title">Status</h3>
-                            <span class="about-subtitle">Siswa RPL SMK</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Skills Section -->
-        <section class="skills section fade-in" id="skills">
-            <h2 class="section-title">Skills & Tools</h2>
-            <span class="section-subtitle">Teknologi yang saya pelajari & gunakan</span>
-
-            <!-- Filter Buttons -->
-            <div class="skills-filters container">
-                <button class="skills-filter-btn active" data-filter="all">All</button>
-                <button class="skills-filter-btn" data-filter="frontend">Frontend</button>
-                <button class="skills-filter-btn" data-filter="backend">Backend</button>
-                <button class="skills-filter-btn" data-filter="tools">Tools</button>
-                <button class="skills-filter-btn" data-filter="ai">AI</button>
-            </div>
-
-            <div class="skills-grid container">
-
-                <!-- HTML -->
-                <div class="skill-card" data-category="frontend">
-                    <div class="skill-card-header">
-                        <div class="skill-card-icon">
-                            <i class='bx bxl-html5'></i>
-                        </div>
-                        <span class="skill-card-desc">Web structure & content</span>
-                    </div>
-                    <h4 class="skill-card-name">HTML</h4>
-                    <span class="skill-card-category">FRONTEND</span>
+        <!-- ABOUT ME SECTION -->
+        <section id="about" class="py-24 px-6 relative z-10 fade-in-section">
+            <div class="max-w-6xl mx-auto">
+                <div class="text-center space-y-3 mb-16">
+                    <span class="text-xs uppercase tracking-widest text-teal-400 font-bold font-heading">Siapa Saya?</span>
+                    <h2 class="text-3xl md:text-4xl font-bold tracking-tight text-white font-heading">Tentang Saya</h2>
+                    <div class="h-1 w-12 bg-gradient-to-r from-teal-500 to-rose-400 mx-auto rounded-full"></div>
                 </div>
 
-                <!-- CSS -->
-                <div class="skill-card" data-category="frontend">
-                    <div class="skill-card-header">
-                        <div class="skill-card-icon">
-                            <i class='bx bxl-css3'></i>
-                        </div>
-                        <span class="skill-card-desc">Styling & layout</span>
-                    </div>
-                    <h4 class="skill-card-name">CSS</h4>
-                    <span class="skill-card-category">FRONTEND</span>
-                </div>
-
-                <!-- JavaScript -->
-                <div class="skill-card" data-category="frontend">
-                    <div class="skill-card-header">
-                        <div class="skill-card-icon">
-                            <i class='bx bxl-javascript'></i>
-                        </div>
-                        <span class="skill-card-desc">Core web logic</span>
-                    </div>
-                    <h4 class="skill-card-name">JavaScript</h4>
-                    <span class="skill-card-category">FRONTEND</span>
-                </div>
-
-                <!-- Laravel -->
-                <div class="skill-card" data-category="backend">
-                    <div class="skill-card-header">
-                        <div class="skill-card-icon">
-                            <svg viewBox="0 0 512 512" class="skill-svg-icon" fill="currentColor"><path d="M504.4 115.83a5.72 5.72 0 00-.28-.68 8.52 8.52 0 00-.53-1.25 6 6 0 00-.54-.71 9.36 9.36 0 00-.72-.94c-.23-.22-.52-.4-.77-.6a8.84 8.84 0 00-.9-.68L404.4 55.55a8 8 0 00-8 0L300.12 111a8.07 8.07 0 00-.88.69 7.68 7.68 0 00-.78.6 8.23 8.23 0 00-.72.93c-.17.24-.39.45-.54.71a9.7 9.7 0 00-.52 1.25c-.08.23-.21.44-.28.68a8.08 8.08 0 00-.28 2.08v105.24l-80.22 46.19V63.44a7.8 7.8 0 00-.28-2.09c-.06-.24-.2-.45-.28-.68a8.35 8.35 0 00-.52-1.24 6.18 6.18 0 00-.54-.71 9.36 9.36 0 00-.72-.94 9.46 9.46 0 00-.78-.6 9.8 9.8 0 00-.88-.68L115.61 .13a8 8 0 00-8 0L11.34 55.55a8.36 8.36 0 00-.88.69 7.27 7.27 0 00-.78.6 8.23 8.23 0 00-.72.93 6.17 6.17 0 00-.54.71 9.7 9.7 0 00-.52 1.25c-.08.23-.21.44-.28.68A7.8 7.8 0 007.34 62.5v288.84a8 8 0 004 6.95l192.55 110.84a8.83 8.83 0 001.33.54c.21.08.41.2.63.26a7.92 7.92 0 004.1 0c.2-.06.4-.18.62-.26a8.34 8.34 0 001.33-.54L404.4 357.29a8 8 0 004-6.95V245.09l96.42-55.49a8 8 0 004-6.95V117.91a7.8 7.8 0 00-.42-2.08zM111.6 17.28l80.19 46.15-80.2 46.18-80.18-46.17zm88.25 60V278.6l-46.53 26.79-33.69 19.4V123.5l46.53-26.79zm0 412.78L23.37 388.07V77.58l33.69 19.4L103.6 123.5v230.94a8.07 8.07 0 00.07 1 8.06 8.06 0 00.22 1 6.22 6.22 0 00.31.93 5.72 5.72 0 00.44.78 6.1 6.1 0 00.52.72 6.44 6.44 0 00.66.66 4.63 4.63 0 00.71.52 7.84 7.84 0 00.82.48 6.39 6.39 0 00.84.34 5.44 5.44 0 00.92.24 7.92 7.92 0 001 .15 4.56 4.56 0 00.94 0 7.57 7.57 0 001-.12 6 6 0 00.95-.26 5.72 5.72 0 00.87-.37c.28-.13.56-.21.82-.37l77.19-44.41 77.19 44.41c.26.16.54.24.82.37a5.72 5.72 0 00.87.37 6 6 0 00.95.26 7.57 7.57 0 001 .12 4.56 4.56 0 00.94 0 7.92 7.92 0 001-.15 5.44 5.44 0 00.92-.24 6.39 6.39 0 00.84-.34 7.84 7.84 0 00.82-.48 4.63 4.63 0 00.71-.52 6.44 6.44 0 00.66-.66 6.1 6.1 0 00.52-.72 5.72 5.72 0 00.44-.78 6.22 6.22 0 00.31-.93 8.06 8.06 0 00.22-1 8.07 8.07 0 00.07-1V354.44l33.69-19.4 46.53-26.79v201.1zM296.1 163.46l-80.19 46.17-80.2-46.17 80.2-46.18zm8.06 56.22v92.36l-33.69-19.4-46.53-26.79v-92.36l46.53 26.79zm88.25-50.73l-80.19 46.17-80.19-46.17 80.19-46.18zm8.06 56.22v92.36L367.78 337l-46.53-26.79v-92.36l46.53 26.79zM484.64 231l-80.19 46.17-80.19-46.17 80.19-46.18z"/></svg>
-                        </div>
-                        <span class="skill-card-desc">REST API development</span>
-                    </div>
-                    <h4 class="skill-card-name">Laravel</h4>
-                    <span class="skill-card-category">BACKEND</span>
-                </div>
-
-                <!-- PHP -->
-                <div class="skill-card" data-category="backend">
-                    <div class="skill-card-header">
-                        <div class="skill-card-icon">
-                            <i class='bx bxl-php'></i>
-                        </div>
-                        <span class="skill-card-desc">Server-side scripting</span>
-                    </div>
-                    <h4 class="skill-card-name">PHP</h4>
-                    <span class="skill-card-category">BACKEND</span>
-                </div>
-
-                <!-- MySQL -->
-                <div class="skill-card" data-category="backend">
-                    <div class="skill-card-header">
-                        <div class="skill-card-icon">
-                            <svg viewBox="0 0 128 128" class="skill-svg-icon" fill="currentColor"><path d="M116.948 97.807c-6.863-.187-12.104.452-16.585 2.341-1.273.537-3.305.552-3.513 2.147.7.733.808 1.829 1.365 2.731 1.07 1.73 2.876 4.052 4.488 5.268 1.762 1.33 3.577 2.751 5.465 3.902 3.358 2.047 7.107 3.217 10.34 5.268 1.906 1.21 3.799 2.733 5.658 4.097.92.675 1.537 1.724 2.732 2.147v-.194c-.628-.79-.791-1.886-1.365-2.731l-2.537-2.537c-2.48-3.292-5.629-6.184-8.976-8.585-2.669-1.916-8.642-4.504-9.755-7.609l-.195-.195c1.892-.214 4.107-.898 5.854-1.367 2.934-.786 5.556-.583 8.585-1.365l4.097-1.171v-.78c-1.531-1.571-2.623-3.651-4.292-5.073-4.37-3.72-9.138-7.437-14.048-10.537-2.724-1.718-6.089-2.835-8.976-4.292-.971-.489-2.702-.746-3.318-1.562-1.517-1.932-2.342-4.382-3.511-6.631-2.449-4.717-4.854-9.868-7.024-14.831-1.48-3.384-2.447-6.72-4.292-9.756-8.86-14.567-18.396-23.358-33.169-32-3.144-1.838-6.929-2.563-10.929-3.513-2.145-.129-4.292-.26-6.438-.391-1.311-.546-2.673-2.149-3.902-2.927C17.811 4.565 5.257-2.16 1.633 6.682c-2.289 5.581 3.421 11.025 5.462 13.854 1.434 1.982 3.269 4.207 4.293 6.438.674 1.467.79 2.938 1.365 4.489 1.423 3.836 2.663 8.009 4.486 11.52 .922 1.776 1.937 3.64 3.122 5.268.729.999 1.96 1.441 2.147 3.122-1.209 1.69-1.28 4.316-1.952 6.438-3.03 9.579-1.891 21.477 2.536 28.555 1.36 2.17 4.567 6.844 8.975 5.073 3.856-1.55 2.995-6.349 4.098-10.535.249-.948.096-1.647.585-2.341v.194l3.513 7.024c2.6 4.187 7.212 8.562 11.122 11.514 2.027 1.531 3.623 4.177 6.244 5.073v-.196h-.194c-.508-.791-1.303-1.119-1.951-1.755-1.527-1.497-3.225-3.358-4.487-5.073-3.556-4.827-6.698-10.11-9.561-15.609-1.368-2.627-2.557-5.523-3.709-8.196-.444-1.03-.438-2.589-1.365-3.122-1.263 1.958-3.122 3.542-4.098 5.854-1.561 3.696-1.762 8.204-2.341 12.878-.342.122-.19.038-.391.194-2.718-.655-3.672-3.452-4.683-5.853-2.554-6.07-3.029-15.842-.78-22.829.582-1.809 3.212-7.501 2.146-9.17-.508-1.666-2.184-2.63-3.121-3.903-1.161-1.574-2.319-3.646-3.124-5.464-2.112-4.753-3.1-10.08-5.267-14.833-1.031-2.262-2.783-4.554-4.293-6.634-1.668-2.296-3.535-3.988-4.877-6.826-.478-.998-1.127-2.604-.391-3.708.229-.749.57-1.06 1.171-1.365 1.015-.819 3.838.273 4.877.781 2.756 1.347 5.058 2.58 7.415 4.293.99.899 2.079 2.083 3.317 2.731h1.562c2.447.564 5.176.171 7.414.975 3.946 1.417 7.49 3.601 10.731 5.854 9.879 6.868 17.929 16.63 23.418 28.358 .888 1.898 1.271 3.705 2.146 5.659 1.769 3.951 3.998 8.022 5.854 11.905 1.858 3.886 3.668 7.789 6.34 10.927 1.402 1.648 6.983 2.534 9.365 3.512 1.688.694 4.411 1.391 5.853 2.34 2.741 1.802 5.393 3.906 7.804 6.046 1.207 1.07 4.924 3.428 5.073 4.877z"/><path d="M29.294 30.119c-1.476-.044-2.524.138-3.512.391v.195h.195c.683 1.402 1.882 2.296 2.731 3.513l1.953 4.097.195-.195c1.209-.852 1.762-2.214 1.755-4.292-.484-.509-.556-1.146-.975-1.755-.476-.692-1.396-1.076-1.951-1.755l-.391-.199z"/></svg>
-                        </div>
-                        <span class="skill-card-desc">Relational database</span>
-                    </div>
-                    <h4 class="skill-card-name">MySQL</h4>
-                    <span class="skill-card-category">BACKEND</span>
-                </div>
-
-                <!-- Git & GitHub -->
-                <div class="skill-card" data-category="tools">
-                    <div class="skill-card-header">
-                        <div class="skill-card-icon">
-                            <i class='bx bxl-git'></i>
-                        </div>
-                        <span class="skill-card-desc">Version control</span>
-                    </div>
-                    <h4 class="skill-card-name">Git & GitHub</h4>
-                    <span class="skill-card-category">TOOLS</span>
-                </div>
-
-                <!-- Google Apps -->
-                <div class="skill-card" data-category="tools">
-                    <div class="skill-card-header">
-                        <div class="skill-card-icon">
-                            <i class='bx bxl-google'></i>
-                        </div>
-                        <span class="skill-card-desc">Productivity suite</span>
-                    </div>
-                    <h4 class="skill-card-name">Google Apps</h4>
-                    <span class="skill-card-category">TOOLS</span>
-                </div>
-
-                <!-- Antigravity -->
-                <div class="skill-card" data-category="ai">
-                    <div class="skill-card-header">
-                        <div class="skill-card-icon">
-                            <svg viewBox="0 0 100 100" class="skill-svg-icon" fill="currentColor"><path d="M50 5C50 5 30 40 15 75C12 82 10 88 15 90C20 92 25 88 30 80C35 72 42 55 50 38C58 55 65 72 70 80C75 88 80 92 85 90C90 88 88 82 85 75C70 40 50 5 50 5Z"/></svg>
-                        </div>
-                        <span class="skill-card-desc">AI Code Assistant</span>
-                    </div>
-                    <h4 class="skill-card-name">Antigravity</h4>
-                    <span class="skill-card-category">AI</span>
-                </div>
-
-                <!-- Prompt Engineer -->
-                <div class="skill-card" data-category="ai">
-                    <div class="skill-card-header">
-                        <div class="skill-card-icon">
-                            <i class='bx bx-bot'></i>
-                        </div>
-                        <span class="skill-card-desc">AI interaction design</span>
-                    </div>
-                    <h4 class="skill-card-name">Prompt Engineer</h4>
-                    <span class="skill-card-category">AI</span>
-                </div>
-
-            </div>
-        </section>
-
-        <!-- Projects Section -->
-        <section class="projects section fade-in" id="projects">
-            <h2 class="section-title">Projects</h2>
-            <span class="section-subtitle">Kumpulan karya dan eksperimen saya</span>
-
-            <div class="projects-container container grid">
-                <!-- Project 1 -->
-                <article class="projects-card">
-                    <div class="projects-img-wrapper">
-                        <img src="img/smi.png" alt="Sistem Manajemen Informasi - SMAN 23 Bandung" class="projects-img" loading="lazy">
-                    </div>
-                    <div class="projects-content">
-                        <h3 class="projects-title">Sistem Manajemen Informasi - SMAN 23 Bandung</h3>
-                        <p class="projects-description">
-                            Sebuah sistem aplikasi berbasis web untuk membantu manajemen sekolah dengan tujuan mempermudah pengelolaan data absensi, pencatatan, dan laporan dalam sebuah instansi pendidikan
-                        </p>
-                        <div class="projects-tech">
-                            <span class="tech-tag">Laravel</span>
-                            <span class="tech-tag">PHP</span>
-                            <span class="tech-tag">MySQL</span>
-                        </div>
-                        <div class="projects-buttons">
-                            <a href="https://github.com/lippbyte/sistem-manajemen-informasi" class="button button-small button-outline"><i class='bx bxl-github'></i> GitHub</a>
+                <!-- Grid responsif: Foto di Kiri, Teks & Bento di Kanan -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                    <!-- Left column: borderless transparent profile image -->
+                    <div class="relative flex justify-center items-center">
+                        <!-- Transparent profile image container -->
+                        <div class="relative w-80 h-80 md:w-[480px] md:h-[480px]">
+                            <img src="assets/img/sigua.png" alt="About Muhammad Khalifa" class="w-full h-full object-contain object-bottom animate-float">
                         </div>
                     </div>
-                </article>
 
-                <!-- Project 2 -->
-                <article class="projects-card">
-                    <div class="projects-img-wrapper">
-                        <img src="img/gudangbarangjava.png" alt="Aplikasi Manajemen Stok - GudangBarang" class="projects-img" loading="lazy">
-                    </div>
-                    <div class="projects-content">
-                        <h3 class="projects-title">Aplikasi Manajemen Stok - GudangBarang</h3>
-                        <p class="projects-description">
-                            Aplikasi manajemen stok berbasis Java Swing dengan integrasi MySQL untuk mengelola barang, update stok, dan data produk.
-                        </p>
-                        <div class="projects-tech">
-                            <span class="tech-tag">Java</span>
-                            <span class="tech-tag">MySQL</span>
-                        </div>
-                        <div class="projects-buttons">
-                            <a href="https://github.com/lippbyte/gudangbarang-app" class="button button-small button-outline"><i class='bx bxl-github'></i> GitHub</a>
-                        </div>
-                    </div>
-                </article>
-
-                <!-- Project 3 -->
-                <article class="projects-card">
-                    <div class="projects-img-wrapper">
-                        <img src="img/android.jpeg" alt="Aplikasi Manajemen Stok berbasis Android" class="projects-img" loading="lazy">
-                    </div>
-                    <div class="projects-content">
-                        <h3 class="projects-title">Aplikasi Manajemen Stok berbasis Android</h3>
-                        <p class="projects-description">
-                            Aplikasi Android untuk manajemen stok barang berbasis SQLite dengan fitur CRUD, update stok, dan perhitungan HPP, dibangun menggunakan Kotlin dan Material Design.
-                        </p>
-                        <div class="projects-tech">
-                            <span class="tech-tag">Android</span>
-                            <span class="tech-tag">Kotlin</span>
-                            <span class="tech-tag">SQLite</span>
-                        </div>
-                        <div class="projects-buttons">
-                            <a href="https://github.com/lippbyte/gudangbarang-android" class="button button-small button-outline"><i class='bx bxl-github'></i> GitHub</a>
-                        </div>
-                    </div>
-                </article>
-            </div>
-
-            <div style="text-align: center; margin-top: 2.5rem;">
-                <a href="https://github.com/lippbyte" target="_blank" class="button button-outline">
-                    <i class='bx bxl-github'></i> Lihat Project Lainnya
-                </a>
-            </div>
-        </section>
-
-        <!-- Learning Journey Section -->
-        <section class="journey section fade-in" id="journey">
-            <h2 class="section-title">Learning Journey</h2>
-            <span class="section-subtitle">Apa yang sedang saya pelajari belakangan ini</span>
-
-            <div class="journey-container container">
-                <div class="journey-timeline">
-                    <!-- Item 1 -->
-                    <div class="journey-item">
-                        <div class="journey-point"></div>
-                        <div class="journey-content">
-                            <h3 class="journey-title"><i class='bx bx-code-alt'></i>Membangun Project Sistem Manajemen Informasi untuk SMAN 23 Bandung</h3>
-                            <p class="journey-description">
-                                Saat ini fokus mempelajari bagaimana web development dapat menjadi solusi untuk permasalahan manajemen data di SMAN 23 Bandung. Dari mulai bagaimana pencatatan kehadiran siswa dan guru, hingga membuat laporan untuk evaluasi. 
+                    <!-- Right column: Narrative and Bento Stats below it -->
+                    <div class="space-y-8 text-left">
+                        <div class="font-body text-slate-400 leading-relaxed space-y-6 text-base md:text-lg">
+                            <p>
+                                Saya adalah seorang pembelajar yang penuh rasa ingin tahu dan selalu antusias dalam memahami cara kerja teknologi. Sebagai seorang <strong class="text-teal-400 font-semibold font-heading">builder</strong> dan <strong class="text-rose-400 font-semibold font-heading">problem solver</strong>, saya tidak hanya sekadar belajar teori, namun juga berusaha mengimplementasikannya ke dalam karya nyata yang bermanfaat.
+                            </p>
+                            <p>
+                                Proses belajar selalu menjadi dorongan terbesar saya. Dengan mengeksplorasi dan memanfaatkan <span class="px-2.5 py-0.5 bg-slate-900/80 border border-slate-800 rounded-lg text-slate-200 font-medium">Artificial Intelligence</span>, saya mencoba menciptakan solusi digital yang dapat menyelesaikan permasalahan nyata, mempermudah pekerjaan, serta membantu banyak orang dari sekarang hingga di masa depan.
                             </p>
                         </div>
-                    </div>
-                    <!-- Item 2 -->
-                    <div class="journey-item">
-                        <div class="journey-point"></div>
-                        <div class="journey-content">
-                            <h3 class="journey-title"><i class='bx bx-brain'></i>Mempelajari AI Agent untuk membantu membuat project</h3>
-                            <p class="journey-description">
-                                Saat ini sedang fokus mempelajari bagaimana AI dapat membantu dalam membuat project. Mulai dari bagaimana AI dapat membantu dalam membuat project, hingga bagaimana AI dapat membantu dalam membuat project.
-                            </p>
+
+                        <!-- Stats Bento Inside Right Column -->
+                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-4">
+                            <div class="glass-panel spotlight-card p-5 rounded-2xl text-center border border-slate-800/50 transition-all glow-teal-hover">
+                                <div class="w-10 h-10 rounded-xl bg-teal-500/10 border border-teal-500/20 text-teal-400 flex items-center justify-center mx-auto mb-3 text-lg">
+                                    <i class="fas fa-code"></i>
+                                </div>
+                                <h3 class="text-sm font-bold text-slate-100 font-heading mb-1">Pengalaman</h3>
+                                <p class="text-xs text-slate-400 font-medium">1+ Tahun</p>
+                            </div>
+                            <div class="glass-panel spotlight-card p-5 rounded-2xl text-center border border-slate-800/50 transition-all glow-rose-hover">
+                                <div class="w-10 h-10 rounded-xl bg-rose-500/10 border border-rose-500/20 text-rose-400 flex items-center justify-center mx-auto mb-3 text-lg">
+                                    <i class="fas fa-folder-open"></i>
+                                </div>
+                                <h3 class="text-sm font-bold text-slate-100 font-heading mb-1">Selesai</h3>
+                                <p class="text-xs text-slate-400 font-medium">5+ Mini Proj</p>
+                            </div>
+                            <div class="glass-panel spotlight-card p-5 rounded-2xl text-center border border-slate-800/50 transition-all glow-teal-hover">
+                                <div class="w-10 h-10 rounded-xl bg-teal-500/10 border border-teal-500/20 text-teal-400 flex items-center justify-center mx-auto mb-3 text-lg">
+                                    <i class="fas fa-graduation-cap"></i>
+                                </div>
+                                <h3 class="text-sm font-bold text-slate-100 font-heading mb-1">Status</h3>
+                                <p class="text-xs text-slate-400 font-medium">SMKN 4 BDG</p>
+                            </div>
                         </div>
                     </div>
-                    <!-- Item 3 -->
-                    <div class="journey-item">
-                        <div class="journey-point"></div>
-                        <div class="journey-content">
-                            <h3 class="journey-title"><i class='bx bx-rocket'></i> Membuat AI Automation untuk membantu pekerjaan</h3>
-                            <p class="journey-description">
-                                Saat ini sedang fokus mempelajari bagaimana AI seperti OpenClaw dapat membantu pekerjaan sehari-hari, terutama pekerjaan ringan yang rutin dan terjadwal. Mulai dari bagaimana AI dapat membantu dalam membuat notes, hingga bagaimana AI dapat membantu dalam membuat project.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div style="text-align: center; margin-top: 2.5rem;">
-                    <a href="https://lippbyte-blog.vercel.app/" target="_blank" class="button button-outline">
-                        <i class='bx bx-book-open'></i> Baca di Lippbyte Blog
-                    </a>
                 </div>
             </div>
         </section>
 
-        <!-- Contact Section -->
-        <section class="contact section fade-in" id="contact">
-            <div class="contact-container container">
-                <!-- Left Column: Info -->
-                <div class="contact-info-col">
-                    <h2 class="contact-heading">Mari Berkolaborasi!</h2>
-                    <p class="contact-description">
-                        Saya terbuka untuk diskusi mengenai ide project, peluang hackathon, atau obrolan santai seputar masa depan AI dan Software Development.
-                    </p>
+        <!-- SKILLS & TOOLS SECTION (Bento Grid Split) -->
+        <section id="skills" class="py-24 px-6 relative bg-slate-950/50 z-10 fade-in-section">
+            <div class="max-w-6xl mx-auto">
+                <div class="text-center space-y-3 mb-16">
+                    <span class="text-xs uppercase tracking-widest text-rose-400 font-bold font-heading">Teknologi</span>
+                    <h2 class="text-3xl md:text-4xl font-bold tracking-tight text-white font-heading">Skills & Tools</h2>
+                    <div class="h-1 w-12 bg-gradient-to-r from-teal-500 to-rose-400 mx-auto rounded-full"></div>
+                </div>
 
-                    <div class="contact-info-list">
-                        <div class="contact-info-item">
-                            <div class="contact-info-icon">
-                                <i class='bx bx-envelope'></i>
-                            </div>
-                            <div class="contact-info-data">
-                                <h4 class="contact-info-title">Email</h4>
-                                <span class="contact-info-subtitle">muhammad.khalifa3289@gmail.com</span>
+                <!-- Bento Split 1: Programming Tools -->
+                <div class="space-y-6">
+                    <div class="flex items-center gap-3 mb-8">
+                        <div class="h-px bg-slate-800 flex-1"></div>
+                        <h3 class="text-sm uppercase tracking-widest text-slate-400 font-bold font-heading">Programming Tools</h3>
+                        <div class="h-px bg-slate-800 flex-1"></div>
+                    </div>
+
+                    <!-- 3 columns on desktop, 1 on mobile -->
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        
+                        <!-- JavaScript Card -->
+                        <div class="glass-panel spotlight-card p-6 rounded-2xl border border-slate-800/50 flex flex-col justify-between transition-all glow-teal-hover">
+                            <div>
+                                <div class="flex justify-between items-start mb-4">
+                                    <div class="w-12 h-12 rounded-xl bg-amber-500/10 border border-amber-500/20 text-amber-400 flex items-center justify-center text-2xl">
+                                        <i class="fab fa-js"></i>
+                                    </div>
+                                    <span class="text-[10px] uppercase font-bold tracking-widest text-amber-500 bg-amber-500/10 px-2 py-0.5 rounded-full">Frontend</span>
+                                </div>
+                                <h4 class="text-lg font-bold text-slate-50 font-heading mb-2">JavaScript</h4>
+                                <p class="text-sm text-slate-400 leading-relaxed font-body">Mampu mengimplementasikan logika interaktif murni (Vanilla), modularitas, manipulasi DOM, AJAX Fetch, dan penanganan event di sisi client.</p>
                             </div>
                         </div>
-                        <div class="contact-info-item">
-                            <div class="contact-info-icon">
-                                <i class='bx bxl-github'></i>
-                            </div>
-                            <div class="contact-info-data">
-                                <h4 class="contact-info-title">GitHub</h4>
-                                <span class="contact-info-subtitle">github.com/lippbyte</span>
+
+                        <!-- Laravel Card -->
+                        <div class="glass-panel spotlight-card p-6 rounded-2xl border border-slate-800/50 flex flex-col justify-between transition-all glow-rose-hover">
+                            <div>
+                                <div class="flex justify-between items-start mb-4">
+                                    <div class="w-12 h-12 rounded-xl bg-rose-500/10 border border-rose-500/20 text-rose-500 flex items-center justify-center">
+                                        <svg viewBox="0 0 512 512" class="w-7 h-7 text-rose-500" fill="currentColor"><path d="M504.4 115.83a5.72 5.72 0 00-.28-.68 8.52 8.52 0 00-.53-1.25 6 6 0 00-.54-.71 9.36 9.36 0 00-.72-.94c-.23-.22-.52-.4-.77-.6a8.84 8.84 0 00-.9-.68L404.4 55.55a8 8 0 00-8 0L300.12 111a8.07 8.07 0 00-.88.69 7.68 7.68 0 00-.78.6 8.23 8.23 0 00-.72.93c-.17.24-.39.45-.54.71a9.7 9.7 0 00-.52 1.25c-.08.23-.21.44-.28.68a8.08 8.08 0 00-.28 2.08v105.24l-80.22 46.19V63.44a7.8 7.8 0 00-.28-2.09c-.06-.24-.2-.45-.28-.68a8.35 8.35 0 00-.52-1.24 6.18 6.18 0 00-.54-.71 9.36 9.36 0 00-.72-.94 9.46 9.46 0 00-.78-.6 9.8 9.8 0 00-.88-.68L115.61 .13a8 8 0 00-8 0L11.34 55.55a8.36 8.36 0 00-.88.69 7.27 7.27 0 00-.78.6 8.23 8.23 0 00-.72.93 6.17 6.17 0 00-.54.71 9.7 9.7 0 00-.52 1.25c-.08.23-.21.44-.28.68A7.8 7.8 0 007.34 62.5v288.84a8 8 0 004 6.95l192.55 110.84a8.83 8.83 0 001.33.54c.21.08.41.2.63.26a7.92 7.92 0 004.1 0c.2-.06.4-.18.62-.26a8.34 8.34 0 001.33-.54L404.4 357.29a8 8 0 004-6.95V245.09l96.42-55.49a8 8 0 004-6.95V117.91a7.8 7.8 0 00-.42-2.08zM111.6 17.28l80.19 46.15-80.2 46.18-80.18-46.17zm88.25 60V278.6l-46.53 26.79-33.69 19.4V123.5l46.53-26.79zm0 412.78L23.37 388.07V77.58l33.69 19.4L103.6 123.5v230.94a8.07 8.07 0 00.07 1 8.06 8.06 0 00.22 1 6.22 6.22 0 00.31.93 5.72 5.72 0 00.44.78 6.1 6.1 0 00.52.72 6.44 6.44 0 00.66.66 4.63 4.63 0 00.71.52 7.84 7.84 0 00.82.48 6.39 6.39 0 00.84.34 5.44 5.44 0 00.92.24 7.92 7.92 0 001 .15 4.56 4.56 0 00.94 0 7.57 7.57 0 001-.12 6 6 0 00.95-.26 5.72 5.72 0 00.87-.37c.28-.13.56-.21.82-.37l77.19-44.41 77.19 44.41c.26.16.54.24.82.37a5.72 5.72 0 00.87.37 6 6 0 00.95.26 7.57 7.57 0 001 .12 4.56 4.56 0 00.94 0 7.92 7.92 0 001-.15 5.44 5.44 0 00.92-.24 6.39 6.39 0 00.84-.34 7.84 7.84 0 00.82-.48 4.63 4.63 0 00.71-.52 6.44 6.44 0 00.66-.66 6.1 6.1 0 00.52-.72 5.72 5.72 0 00.44-.78 6.22 6.22 0 00.31-.93 8.06 8.06 0 00.22-1 8.07 8.07 0 00.07-1V354.44l33.69-19.4 46.53-26.79v201.1zM296.1 163.46l-80.19 46.17-80.2-46.17 80.2-46.18zm8.06 56.22v92.36l-33.69-19.4-46.53-26.79v-92.36l46.53 26.79zm88.25-50.73l-80.19 46.17-80.19-46.17 80.19-46.18zm8.06 56.22v92.36L367.78 337l-46.53-26.79v-92.36l46.53 26.79zM484.64 231l-80.19 46.17-80.19-46.17 80.19-46.18z"/></svg>
+                                    </div>
+                                    <span class="text-[10px] uppercase font-bold tracking-widest text-rose-400 bg-rose-500/10 px-2 py-0.5 rounded-full">Backend</span>
+                                </div>
+                                <h4 class="text-lg font-bold text-slate-50 font-heading mb-2">Laravel Framework</h4>
+                                <p class="text-sm text-slate-400 leading-relaxed font-body">Membangun arsitektur backend MVC tangguh, RESTful API development, Eloquent ORM, migrasi database, dan integrasi blade template.</p>
                             </div>
                         </div>
-                        <div class="contact-info-item">
-                            <div class="contact-info-icon">
-                                <i class='bx bxl-linkedin-square'></i>
+
+                        <!-- Tailwind CSS Card -->
+                        <div class="glass-panel spotlight-card p-6 rounded-2xl border border-slate-800/50 flex flex-col justify-between transition-all glow-teal-hover">
+                            <div>
+                                <div class="flex justify-between items-start mb-4">
+                                    <div class="w-12 h-12 rounded-xl bg-teal-500/10 border border-teal-500/20 text-teal-400 flex items-center justify-center text-xl">
+                                        <i class="fab fa-css3-alt text-teal-400"></i>
+                                    </div>
+                                    <span class="text-[10px] uppercase font-bold tracking-widest text-teal-400 bg-teal-500/10 px-2 py-0.5 rounded-full">Styling</span>
+                                </div>
+                                <h4 class="text-lg font-bold text-slate-50 font-heading mb-2">Tailwind CSS</h4>
+                                <p class="text-sm text-slate-400 leading-relaxed font-body">Penerapan utilitas CSS utility-first secara komprehensif, desain responsif instan, dynamic theme styling, dan kustomisasi kustomisasi murni.</p>
                             </div>
-                            <div class="contact-info-data">
-                                <h4 class="contact-info-title">LinkedIn</h4>
-                                <span class="contact-info-subtitle">linkedin.com/in/muhammad-khalifa-72611b3b8</span>
+                        </div>
+
+                        <!-- PHP Card -->
+                        <div class="glass-panel spotlight-card p-6 rounded-2xl border border-slate-800/50 flex flex-col justify-between transition-all glow-teal-hover">
+                            <div>
+                                <div class="flex justify-between items-start mb-4">
+                                    <div class="w-12 h-12 rounded-xl bg-sky-500/10 border border-sky-500/20 text-sky-400 flex items-center justify-center text-2xl">
+                                        <i class="fab fa-php"></i>
+                                    </div>
+                                    <span class="text-[10px] uppercase font-bold tracking-widest text-sky-400 bg-sky-500/10 px-2 py-0.5 rounded-full">Backend</span>
+                                </div>
+                                <h4 class="text-lg font-bold text-slate-50 font-heading mb-2">PHP OOP</h4>
+                                <p class="text-sm text-slate-400 leading-relaxed font-body">Pemrograman berorientasi objek menggunakan PHP, penanganan form, pengiriman data aman, enkripsi, dan integrasi logic backend.</p>
                             </div>
+                        </div>
+
+                        <!-- MySQL Card -->
+                        <div class="glass-panel spotlight-card p-6 rounded-2xl border border-slate-800/50 flex flex-col justify-between transition-all glow-rose-hover">
+                            <div>
+                                <div class="flex justify-between items-start mb-4">
+                                    <div class="w-12 h-12 rounded-xl bg-sky-500/10 border border-sky-500/20 text-sky-400 flex items-center justify-center">
+                                        <svg viewBox="0 0 128 128" class="w-7 h-7 text-sky-400" fill="currentColor"><path d="M116.948 97.807c-6.863-.187-12.104.452-16.585 2.341-1.273.537-3.305.552-3.513 2.147.7.733.808 1.829 1.365 2.731 1.07 1.73 2.876 4.052 4.488 5.268 1.762 1.33 3.577 2.751 5.465 3.902 3.358 2.047 7.107 3.217 10.34 5.268 1.906 1.21 3.799 2.733 5.658 4.097.92.675 1.537 1.724 2.732 2.147v-.194c-.628-.79-.791-1.886-1.365-2.731l-2.537-2.537c-2.48-3.292-5.629-6.184-8.976-8.585-2.669-1.916-8.642-4.504-9.755-7.609l-.195-.195c1.892-.214 4.107-.898 5.854-1.367 2.934-.786 5.556-.583 8.585-1.365l4.097-1.171v-.78c-1.531-1.571-2.623-3.651-4.292-5.073-4.37-3.72-9.138-7.437-14.048-10.537-2.724-1.718-6.089-2.835-8.976-4.292-.971-.489-2.702-.746-3.318-1.562-1.517-1.932-2.342-4.382-3.511-6.631-2.449-4.717-4.854-9.868-7.024-14.831-1.48-3.384-2.447-6.72-4.292-9.756-8.86-14.567-18.396-23.358-33.169-32-3.144-1.838-6.929-2.563-10.929-3.513-2.145-.129-4.292-.26-6.438-.391-1.311-.546-2.673-2.149-3.902-2.927C17.811 4.565 5.257-2.16 1.633 6.682c-2.289 5.581 3.421 11.025 5.462 13.854 1.434 1.982 3.269 4.207 4.293 6.438.674 1.467.79 2.938 1.365 4.489 1.423 3.836 2.663 8.009 4.486 11.52 .922 1.776 1.937 3.64 3.122 5.268.729.999 1.96 1.441 2.147 3.122-1.209 1.69-1.28 4.316-1.952 6.438-3.03 9.579-1.891 21.477 2.536 28.555 1.36 2.17 4.567 6.844 8.975 5.073 3.856-1.55 2.995-6.349 4.098-10.535.249-.948.096-1.647.585-2.341v.194l3.513 7.024c2.6 4.187 7.212 8.562 11.122 11.514 2.027 1.531 3.623 4.177 6.244 5.073v-.196h-.194c-.508-.791-1.303-1.119-1.951-1.755-1.527-1.497-3.225-3.358-4.487-5.073-3.556-4.827-6.698-10.11-9.561-15.609-1.368-2.627-2.557-5.523-3.709-8.196-.444-1.03-.438-2.589-1.365-3.122-1.263 1.958-3.122 3.542-4.098 5.854-1.561 3.696-1.762 8.204-2.341 12.878-.342.122-.19.038-.391.194-2.718-.655-3.672-3.452-4.683-5.853-2.554-6.07-3.029-15.842-.78-22.829.582-1.809 3.212-7.501 2.146-9.17-.508-1.666-2.184-2.63-3.121-3.903-1.161-1.574-2.319-3.646-3.124-5.464-2.112-4.753-3.1-10.08-5.267-14.833-1.031-2.262-2.783-4.554-4.293-6.634-1.668-2.296-3.535-3.988-4.877-6.826-.478-.998-1.127-2.604-.391-3.708.229-.749.57-1.06 1.171-1.365 1.015-.819 3.838.273 4.877.781 2.756 1.347 5.058 2.58 7.415 4.293.99.899 2.079 2.083 3.317 2.731h1.562c2.447.564 5.176.171 7.414.975 3.946 1.417 7.49 3.601 10.731 5.854 9.879 6.868 17.929 16.63 23.418 28.358 .888 1.898 1.271 3.705 2.146 5.659 1.769 3.951 3.998 8.022 5.854 11.905 1.858 3.886 3.668 7.789 6.34 10.927 1.402 1.648 6.983 2.534 9.365 3.512 1.688.694 4.411 1.391 5.853 2.34 2.741 1.802 5.393 3.906 7.804 6.046 1.207 1.07 4.924 3.428 5.073 4.877z"/><path d="M29.294 30.119c-1.476-.044-2.524.138-3.512.391v.195h.195c.683 1.402 1.882 2.296 2.731 3.513l1.953 4.097.195-.195c1.209-.852 1.762-2.214 1.755-4.292-.484-.509-.556-1.146-.975-1.755-.476-.692-1.396-1.076-1.951-1.755l-.391-.199z"/></svg>
+                                    </div>
+                                    <span class="text-[10px] uppercase font-bold tracking-widest text-sky-400 bg-sky-500/10 px-2 py-0.5 rounded-full">Database</span>
+                                </div>
+                                <h4 class="text-lg font-bold text-slate-50 font-heading mb-2">MySQL</h4>
+                                <p class="text-sm text-slate-400 leading-relaxed font-body">Perancangan skema database relasional murni, optimalisasi query SQL dasar, manajemen tabel, dan manipulasi data CRUD.</p>
+                            </div>
+                        </div>
+
+                        <!-- Antigravity Card -->
+                        <div class="glass-panel spotlight-card p-6 rounded-2xl border border-slate-800/50 flex flex-col justify-between transition-all glow-teal-hover">
+                            <div>
+                                <div class="flex justify-between items-start mb-4">
+                                    <div class="w-12 h-12 rounded-xl bg-teal-500/10 border border-teal-500/20 text-teal-400 flex items-center justify-center">
+                                        <svg viewBox="0 0 100 100" class="w-8 h-8 text-teal-400" fill="currentColor"><path d="M50 5C50 5 30 40 15 75C12 82 10 88 15 90C20 92 25 88 30 80C35 72 42 55 50 38C58 55 65 72 70 80C75 88 80 92 85 90C90 88 88 82 85 75C70 40 50 5 50 5Z"/></svg>
+                                    </div>
+                                    <span class="text-[10px] uppercase font-bold tracking-widest text-teal-400 bg-teal-500/10 px-2 py-0.5 rounded-full">AI Assistant</span>
+                                </div>
+                                <h4 class="text-lg font-bold text-slate-50 font-heading mb-2">Antigravity AI</h4>
+                                <p class="text-sm text-slate-400 leading-relaxed font-body">Mengeksplorasi integrasi AI Agent, rekayasa prompt tingkat lanjut, serta optimasi kolaborasi pair programming dengan AI.</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Bento Split 2: Workspace Tools -->
+                <div class="space-y-6 mt-16">
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="h-px bg-slate-800 flex-1"></div>
+                        <h3 class="text-sm uppercase tracking-widest text-slate-400 font-bold font-heading">Workspace & Productivity Tools</h3>
+                        <div class="h-px bg-slate-800 flex-1"></div>
+                    </div>
+
+                    <!-- Smaller sub-cards in 2 cols on mobile, 4 cols on desktop -->
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                        
+                        <!-- VS Code -->
+                        <div class="glass-panel spotlight-card p-5 rounded-xl border border-slate-800 transition-all glow-teal-hover">
+                            <div class="flex items-center gap-3">
+                                <div class="w-10 h-10 rounded-lg bg-slate-900 border border-slate-800 text-teal-400 flex items-center justify-center text-lg">
+                                    <i class="fas fa-terminal"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-sm font-bold text-slate-100 font-heading">VS Code</h4>
+                                    <span class="text-[10px] text-slate-400">Editor Utama</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Figma -->
+                        <div class="glass-panel spotlight-card p-5 rounded-xl border border-slate-800 transition-all glow-rose-hover">
+                            <div class="flex items-center gap-3">
+                                <div class="w-10 h-10 rounded-lg bg-slate-900 border border-slate-800 text-rose-400 flex items-center justify-center text-lg">
+                                    <i class="fab fa-figma"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-sm font-bold text-slate-100 font-heading">Figma</h4>
+                                    <span class="text-[10px] text-slate-400">UI/UX Design</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Postman -->
+                        <div class="glass-panel spotlight-card p-5 rounded-xl border border-slate-800 transition-all glow-teal-hover">
+                            <div class="flex items-center gap-3">
+                                <div class="w-10 h-10 rounded-lg bg-slate-900 border border-slate-800 text-teal-400 flex items-center justify-center text-lg">
+                                    <i class="fas fa-paper-plane"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-sm font-bold text-slate-100 font-heading">Postman</h4>
+                                    <span class="text-[10px] text-slate-400">API Testing</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Git & GitHub -->
+                        <div class="glass-panel spotlight-card p-5 rounded-xl border border-slate-800 transition-all glow-rose-hover">
+                            <div class="flex items-center gap-3">
+                                <div class="w-10 h-10 rounded-lg bg-slate-900 border border-slate-800 text-rose-400 flex items-center justify-center text-lg">
+                                    <i class="fab fa-github"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-sm font-bold text-slate-100 font-heading">Git & GitHub</h4>
+                                    <span class="text-[10px] text-slate-400">Version Control</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Notion -->
+                        <div class="glass-panel spotlight-card p-5 rounded-xl border border-slate-800 transition-all glow-rose-hover">
+                            <div class="flex items-center gap-3">
+                                <div class="w-10 h-10 rounded-lg bg-slate-900 border border-slate-800 text-rose-400 flex items-center justify-center text-lg">
+                                    <i class="fas fa-book-open"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-sm font-bold text-slate-100 font-heading">Notion</h4>
+                                    <span class="text-[10px] text-slate-400">Dokumentasi</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Google Workspace -->
+                        <div class="glass-panel spotlight-card p-5 rounded-xl border border-slate-800 transition-all glow-teal-hover">
+                            <div class="flex items-center gap-3">
+                                <div class="w-10 h-10 rounded-lg bg-slate-900 border border-slate-800 text-teal-400 flex items-center justify-center text-lg">
+                                    <i class="fab fa-google"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-sm font-bold text-slate-100 font-heading">Google Apps</h4>
+                                    <span class="text-[10px] text-slate-400">Produktifitas</span>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PROJECT SHOWCASE SECTION -->
+        <section id="projects" class="py-24 px-6 relative z-10 fade-in-section">
+            <div class="max-w-6xl mx-auto">
+                <div class="text-center space-y-3 mb-16">
+                    <span class="text-xs uppercase tracking-widest text-teal-400 font-bold font-heading">Karya Terbaik</span>
+                    <h2 class="text-3xl md:text-4xl font-bold tracking-tight text-white font-heading">Project Showcase</h2>
+                    <div class="h-1 w-12 bg-gradient-to-r from-teal-500 to-rose-400 mx-auto rounded-full"></div>
+                </div>
+
+                <!-- 3 Top Cards Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    
+                    <!-- Project 1 -->
+                    <article class="glass-panel spotlight-card rounded-2xl border border-slate-800/80 overflow-hidden flex flex-col group transition-all duration-300">
+                        <div class="aspect-video relative overflow-hidden bg-slate-950">
+                            <img src="assets/img/smi.png" alt="SMI SMAN 23 Bandung" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy">
+                            <div class="absolute inset-0 bg-gradient-to-t from-slate-900 to-transparent opacity-60"></div>
+                        </div>
+                        <div class="p-6 flex-1 flex flex-col justify-between">
+                            <div class="space-y-4">
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="text-[10px] font-bold bg-teal-500/10 text-teal-400 px-2 py-0.5 rounded">Laravel</span>
+                                    <span class="text-[10px] font-bold bg-slate-800 text-slate-300 px-2 py-0.5 rounded">PHP OOP</span>
+                                    <span class="text-[10px] font-bold bg-slate-800 text-slate-300 px-2 py-0.5 rounded">MySQL</span>
+                                </div>
+                                <h3 class="text-lg font-bold text-slate-50 font-heading group-hover:text-teal-400 transition-colors">Sistem Informasi SMAN 23 Bandung</h3>
+                                <p class="text-sm text-slate-400 leading-relaxed font-body">Aplikasi web instansi pendidikan komprehensif untuk mempermudah absensi siswa/guru, pencatatan akademik, serta evaluasi laporan berkala.</p>
+                            </div>
+                            <div class="pt-6">
+                                <a href="https://github.com/lippbyte/sistem-manajemen-informasi" target="_blank" class="inline-flex items-center gap-2 text-xs font-semibold text-slate-300 hover:text-teal-400 transition-colors">
+                                    <i class="fab fa-github"></i> Inspect Repository
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Project 2 -->
+                    <article class="glass-panel spotlight-card rounded-2xl border border-slate-800/80 overflow-hidden flex flex-col group transition-all duration-300">
+                        <div class="aspect-video relative overflow-hidden bg-slate-950">
+                            <img src="assets/img/gudangbarangjava.png" alt="GudangBarang Desktop App" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy">
+                            <div class="absolute inset-0 bg-gradient-to-t from-slate-900 to-transparent opacity-60"></div>
+                        </div>
+                        <div class="p-6 flex-1 flex flex-col justify-between">
+                            <div class="space-y-4">
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="text-[10px] font-bold bg-rose-500/10 text-rose-400 px-2 py-0.5 rounded">Java Swing</span>
+                                    <span class="text-[10px] font-bold bg-slate-800 text-slate-300 px-2 py-0.5 rounded">MySQL</span>
+                                </div>
+                                <h3 class="text-lg font-bold text-slate-50 font-heading group-hover:text-rose-400 transition-colors">Aplikasi Manajemen GudangBarang</h3>
+                                <p class="text-sm text-slate-400 leading-relaxed font-body">Sistem manajemen stok inventori berbasis desktop (Java Swing) terintegrasi database untuk pelacakan produk dan pembukuan stok berkala.</p>
+                            </div>
+                            <div class="pt-6">
+                                <a href="https://github.com/lippbyte/gudangbarang-app" target="_blank" class="inline-flex items-center gap-2 text-xs font-semibold text-slate-300 hover:text-rose-400 transition-colors">
+                                    <i class="fab fa-github"></i> Inspect Repository
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Project 3 -->
+                    <article class="glass-panel spotlight-card rounded-2xl border border-slate-800/80 overflow-hidden flex flex-col group transition-all duration-300">
+                        <div class="aspect-video relative overflow-hidden bg-slate-950">
+                            <img src="assets/img/android.jpeg" alt="GudangBarang Android App" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy">
+                            <div class="absolute inset-0 bg-gradient-to-t from-slate-900 to-transparent opacity-60"></div>
+                        </div>
+                        <div class="p-6 flex-1 flex flex-col justify-between">
+                            <div class="space-y-4">
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="text-[10px] font-bold bg-teal-500/10 text-teal-400 px-2 py-0.5 rounded">Android SDK</span>
+                                    <span class="text-[10px] font-bold bg-slate-800 text-slate-300 px-2 py-0.5 rounded">Kotlin</span>
+                                    <span class="text-[10px] font-bold bg-slate-800 text-slate-300 px-2 py-0.5 rounded">SQLite</span>
+                                </div>
+                                <h3 class="text-lg font-bold text-slate-50 font-heading group-hover:text-teal-400 transition-colors">GudangBarang Mobile (Android)</h3>
+                                <p class="text-sm text-slate-400 leading-relaxed font-body">Aplikasi manajemen stok barang portabel berbasis database lokal SQLite, dibalut Material Design UI bersih dan kalkulasi HPP otomatis.</p>
+                            </div>
+                            <div class="pt-6">
+                                <a href="https://github.com/lippbyte/gudangbarang-android" target="_blank" class="inline-flex items-center gap-2 text-xs font-semibold text-slate-300 hover:text-teal-400 transition-colors">
+                                    <i class="fab fa-github"></i> Inspect Repository
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+
+                </div>
+
+                <!-- CTA Button with glowing active hover state -->
+                <div class="flex justify-center mt-16">
+                    <button class="open-modal-btn px-8 py-4 bg-slate-900 border border-slate-800 text-teal-400 hover:text-white font-bold rounded-2xl text-sm transition-all duration-300 shadow-[0_0_15px_rgba(20,167,160,0.1)] hover:shadow-[0_0_20px_rgba(20,167,160,0.4)] hover:border-teal-500 flex items-center gap-3">
+                        <i class="fas fa-folder-open"></i> Lihat Semua Project
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- PORTFOLIO POPUP MODAL (HIDDEN BY DEFAULT) -->
+        <div id="project-modal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-md items-center justify-center hidden opacity-0 transition-opacity duration-300 p-4">
+            
+            <div class="modal-content-box bg-slate-900 border border-slate-800 max-w-4xl w-full max-h-[85vh] rounded-3xl overflow-hidden shadow-2xl transform scale-95 transition-transform duration-300 flex flex-col">
+                <!-- Modal Header -->
+                <div class="px-8 py-5 border-b border-slate-800/80 flex items-center justify-between bg-slate-950/40">
+                    <h3 class="text-xl font-bold font-heading text-white flex items-center gap-3">
+                        <i class="fas fa-boxes text-teal-400"></i> Katalog Portofolio Project
+                    </h3>
+                    <button class="close-modal-btn w-8 h-8 rounded-full bg-slate-800 hover:bg-rose-500/20 text-slate-400 hover:text-rose-400 transition-colors flex items-center justify-center focus:outline-none">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+
+                <!-- Modal Body (Scrollable internally) -->
+                <div class="modal-scroll overflow-y-auto p-8 flex-1 space-y-8">
+                    <p class="text-sm text-slate-400 font-body">Berikut adalah katalog lengkap mini project, aplikasi demo, dan eksperimen pemrograman yang sedang saya kembangkan:</p>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        
+                        <!-- Modal Item 1 -->
+                        <div class="p-5 rounded-2xl bg-slate-950/60 border border-slate-800/50 flex flex-col justify-between">
+                            <div class="space-y-3">
+                                <h4 class="font-bold text-slate-100 font-heading text-base">SMAN 23 Bandung - Sistem Informasi</h4>
+                                <p class="text-xs text-slate-400 leading-relaxed font-body">Sistem administrasi absensi digital untuk efisiensi instansi sekolah menengah atas di Bandung. Dibangun menggunakan arsitektur MVC Laravel.</p>
+                                <div class="flex flex-wrap gap-1.5 pt-1">
+                                    <span class="text-[9px] bg-slate-800 text-slate-300 px-1.5 py-0.5 rounded">Laravel</span>
+                                    <span class="text-[9px] bg-slate-800 text-slate-300 px-1.5 py-0.5 rounded">MySQL</span>
+                                </div>
+                            </div>
+                            <a href="https://github.com/lippbyte/sistem-manajemen-informasi" target="_blank" class="text-xs font-semibold text-teal-400 mt-4 inline-flex items-center gap-1.5 hover:underline"><i class="fab fa-github"></i> GitHub Link</a>
+                        </div>
+
+                        <!-- Modal Item 2 -->
+                        <div class="p-5 rounded-2xl bg-slate-950/60 border border-slate-800/50 flex flex-col justify-between">
+                            <div class="space-y-3">
+                                <h4 class="font-bold text-slate-100 font-heading text-base">GudangBarang Desktop App</h4>
+                                <p class="text-xs text-slate-400 leading-relaxed font-body">Aplikasi inventory control berbasis client-server untuk optimasi manajemen barang logistik dalam lingkungan manufaktur skala mikro.</p>
+                                <div class="flex flex-wrap gap-1.5 pt-1">
+                                    <span class="text-[9px] bg-slate-800 text-slate-300 px-1.5 py-0.5 rounded">Java Swing</span>
+                                    <span class="text-[9px] bg-slate-800 text-slate-300 px-1.5 py-0.5 rounded">JDBC MySQL</span>
+                                </div>
+                            </div>
+                            <a href="https://github.com/lippbyte/gudangbarang-app" target="_blank" class="text-xs font-semibold text-rose-400 mt-4 inline-flex items-center gap-1.5 hover:underline"><i class="fab fa-github"></i> GitHub Link</a>
+                        </div>
+
+                        <!-- Modal Item 3 -->
+                        <div class="p-5 rounded-2xl bg-slate-950/60 border border-slate-800/50 flex flex-col justify-between">
+                            <div class="space-y-3">
+                                <h4 class="font-bold text-slate-100 font-heading text-base">GudangBarang Mobile App</h4>
+                                <p class="text-xs text-slate-400 leading-relaxed font-body">Optimasi visualisasi inventaris stok mobile menggunakan Android Kotlin dengan manajemen penyimpanan lokal SQLite yang instan.</p>
+                                <div class="flex flex-wrap gap-1.5 pt-1">
+                                    <span class="text-[9px] bg-slate-800 text-slate-300 px-1.5 py-0.5 rounded">Kotlin</span>
+                                    <span class="text-[9px] bg-slate-800 text-slate-300 px-1.5 py-0.5 rounded">Android SDK</span>
+                                </div>
+                            </div>
+                            <a href="https://github.com/lippbyte/gudangbarang-android" target="_blank" class="text-xs font-semibold text-teal-400 mt-4 inline-flex items-center gap-1.5 hover:underline"><i class="fab fa-github"></i> GitHub Link</a>
+                        </div>
+
+                        <!-- Modal Item 4 -->
+                        <div class="p-5 rounded-2xl bg-slate-950/60 border border-slate-800/50 flex flex-col justify-between">
+                            <div class="space-y-3">
+                                <h4 class="font-bold text-slate-100 font-heading text-base">Lippbyte Tech Blog</h4>
+                                <p class="text-xs text-slate-400 leading-relaxed font-body">Media pembelajaran blog pengembang untuk membagikan tutorial pemrograman, tips AI engineering, dan catatan rekayasa perangkat lunak.</p>
+                                <div class="flex flex-wrap gap-1.5 pt-1">
+                                    <span class="text-[9px] bg-slate-800 text-slate-300 px-1.5 py-0.5 rounded">Vercel</span>
+                                    <span class="text-[9px] bg-slate-800 text-slate-300 px-1.5 py-0.5 rounded">Markdown</span>
+                                </div>
+                            </div>
+                            <a href="https://lippbyte-blog.vercel.app/" target="_blank" class="text-xs font-semibold text-rose-400 mt-4 inline-flex items-center gap-1.5 hover:underline"><i class="fas fa-globe"></i> Kunjungi Blog</a>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Modal Footer -->
+                <div class="px-8 py-5 border-t border-slate-800/80 bg-slate-950/40 flex justify-end">
+                    <button class="close-modal-btn px-5 py-2.5 bg-slate-800 hover:bg-slate-700 text-slate-200 font-semibold rounded-xl text-xs transition-colors focus:outline-none">
+                        Tutup Katalog
+                    </button>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- LEARNING JOURNEY TIMELINE SECTION -->
+        <section id="journey" class="py-24 px-6 relative bg-slate-950/50 z-10 fade-in-section">
+            <div class="max-w-6xl mx-auto">
+                <div class="text-center space-y-3 mb-16">
+                    <span class="text-xs uppercase tracking-widest text-rose-400 font-bold font-heading">Proses Belajar</span>
+                    <h2 class="text-3xl md:text-4xl font-bold tracking-tight text-white font-heading">Learning Journey</h2>
+                    <div class="h-1 w-12 bg-gradient-to-r from-teal-500 to-rose-400 mx-auto rounded-full"></div>
+                </div>
+
+                <!-- Timeline Container (Vertical dashed center-line base on custom.css) -->
+                <div class="journey-timeline relative max-w-3xl mx-auto pl-8 md:pl-0 space-y-12">
+                    
+                    <!-- Timeline Item 1 -->
+                    <div class="relative md:flex md:justify-between items-center w-full">
+                        <div class="hidden md:block w-5/12"></div>
+                        <!-- Dot -->
+                        <div class="absolute -left-[23px] md:left-1/2 md:-translate-x-1/2 w-[14px] h-[14px] bg-slate-950 border-4 border-teal-500 rounded-full z-10 shadow-[0_0_8px_#14a7a0]"></div>
+                        <!-- Content panel -->
+                        <div class="glass-panel spotlight-card p-6 rounded-2xl border border-slate-800 md:w-5/12 transition-all duration-300">
+                            <h3 class="font-bold text-slate-50 font-heading text-base mb-2 flex items-center gap-2">
+                                <i class="fas fa-school text-teal-400 text-sm"></i> SMI SMAN 23 Bandung
+                            </h3>
+                            <p class="text-sm text-slate-400 leading-relaxed font-body">Fokus utama merancang sistem informasi manajemen sekolah yang tangguh, mempermudah pencatatan kehadiran serta pembuatan rekapitulasi data akademik.</p>
+                        </div>
+                    </div>
+
+                    <!-- Timeline Item 2 -->
+                    <div class="relative md:flex md:justify-between items-center w-full md:flex-row-reverse">
+                        <div class="hidden md:block w-5/12"></div>
+                        <!-- Dot -->
+                        <div class="absolute -left-[23px] md:left-1/2 md:-translate-x-1/2 w-[14px] h-[14px] bg-slate-950 border-4 border-rose-400 rounded-full z-10 shadow-[0_0_8px_#F76B8A]"></div>
+                        <!-- Content panel -->
+                        <div class="glass-panel spotlight-card p-6 rounded-2xl border border-slate-800 md:w-5/12 transition-all duration-300">
+                            <h3 class="font-bold text-slate-50 font-heading text-base mb-2 flex items-center gap-2">
+                                <i class="fas fa-brain text-rose-400 text-sm"></i> Eksplorasi AI Agent
+                            </h3>
+                            <p class="text-sm text-slate-400 leading-relaxed font-body">Mempelajari cara kerja kecerdasan buatan, mengintegrasikan AI Agent untuk mempercepat siklus rekayasa kode dan pemrograman web secara andal.</p>
+                        </div>
+                    </div>
+
+                    <!-- Timeline Item 3 -->
+                    <div class="relative md:flex md:justify-between items-center w-full">
+                        <div class="hidden md:block w-5/12"></div>
+                        <!-- Dot -->
+                        <div class="absolute -left-[23px] md:left-1/2 md:-translate-x-1/2 w-[14px] h-[14px] bg-slate-950 border-4 border-teal-500 rounded-full z-10 shadow-[0_0_8px_#14a7a0]"></div>
+                        <!-- Content panel -->
+                        <div class="glass-panel spotlight-card p-6 rounded-2xl border border-slate-800 md:w-5/12 transition-all duration-300">
+                            <h3 class="font-bold text-slate-50 font-heading text-base mb-2 flex items-center gap-2">
+                                <i class="fas fa-rocket text-teal-400 text-sm"></i> AI Automation (OpenClaw)
+                            </h3>
+                            <p class="text-sm text-slate-400 leading-relaxed font-body">Menguji coba automasi rutin berbasis AI untuk efisiensi pembuatan developer notes, sinkronisasi jadwal, dan optimasi alur kerja harian.</p>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Prominent Blog Banner -->
+                <div class="max-w-3xl mx-auto mt-20 p-8 rounded-3xl bg-gradient-to-r from-teal-950/40 to-rose-950/40 border border-slate-800/80 text-center relative overflow-hidden group">
+                    <!-- Glass cover glow -->
+                    <div class="absolute -right-20 -top-20 w-48 h-48 bg-teal-500/10 rounded-full blur-3xl opacity-60"></div>
+                    <div class="absolute -left-20 -bottom-20 w-48 h-48 bg-rose-500/10 rounded-full blur-3xl opacity-60"></div>
+                    
+                    <div class="relative z-10 space-y-4">
+                        <span class="text-[10px] uppercase font-bold tracking-widest text-rose-400 bg-rose-500/10 px-3 py-1 rounded-full border border-rose-500/20">Developer Insights</span>
+                        <h3 class="text-2xl font-bold text-white font-heading">Suka Membaca Seputar Dunia Coding?</h3>
+                        <p class="text-slate-400 font-body text-sm md:text-base max-w-xl mx-auto leading-relaxed">Saya rutin membagikan tutorial programming, ulasan teknologi kecerdasan buatan, dan tips-tips coding menarik di blog pribadi saya.</p>
+                        
+                        <div class="pt-4">
+                            <a href="https://lippbyte-blog.vercel.app/" target="_blank" class="inline-flex items-center gap-2 px-6 py-3 bg-teal-500 hover:bg-teal-400 text-slate-950 font-bold rounded-xl text-xs uppercase tracking-wider transition-all duration-300 shadow-[0_0_15px_rgba(20,167,160,0.2)]">
+                                Kunjungi Lippbyte Blog <i class="fas fa-external-link-alt text-[10px]"></i>
+                            </a>
                         </div>
                     </div>
                 </div>
 
-                <!-- Right Column: Form -->
-                <div class="contact-form-col">
-                    <form class="contact-form" id="contact-form" action="https://formsubmit.co/muhammad.khalifa3289@gmail.com" method="POST">
-                        <!-- FormSubmit Configuration -->
-                        <input type="hidden" name="_subject" value="Pesan Baru dari Portfolio Lippbyte">
-                        <input type="hidden" name="_captcha" value="false">
-                        <input type="hidden" name="_template" value="table">
-                        <input type="text" name="_honey" style="display:none">
+            </div>
+        </section>
 
-                        <div class="contact-form-group">
-                            <label for="contact-name" class="contact-form-label">Nama Lengkap</label>
-                            <input type="text" id="contact-name" name="name" class="contact-form-input" placeholder="Masukkan nama lengkap" required>
+        <!-- CONTACT SECTION -->
+        <section id="contact" class="py-24 px-6 relative z-10 fade-in-section">
+            <div class="max-w-6xl mx-auto">
+                <div class="text-center space-y-3 mb-16">
+                    <span class="text-xs uppercase tracking-widest text-teal-400 font-bold font-heading">Hubungi Saya</span>
+                    <h2 class="text-3xl md:text-4xl font-bold tracking-tight text-white font-heading">Mari Berkolaborasi!</h2>
+                    <div class="h-1 w-12 bg-gradient-to-r from-teal-500 to-rose-400 mx-auto rounded-full"></div>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+                    
+                    <!-- Left: Contact Details -->
+                    <div class="space-y-8 lg:pr-6">
+                        <div class="space-y-4">
+                            <h3 class="text-2xl font-bold text-slate-50 font-heading">Bahas ide Anda bersama saya</h3>
+                            <p class="text-slate-400 leading-relaxed font-body">Saya selalu terbuka untuk berdiskusi mengenai proyek perangkat lunak baru, peluang hackathon, rekayasa kecerdasan buatan, atau sekadar obrolan santai seputar masa depan teknologi developer.</p>
                         </div>
-                        <div class="contact-form-group">
-                            <label for="contact-email" class="contact-form-label">Email</label>
-                            <input type="email" id="contact-email" name="email" class="contact-form-input" placeholder="Masukkan email" required>
+
+                        <!-- Contact List -->
+                        <div class="space-y-4 pt-4">
+                            
+                            <!-- Email -->
+                            <div class="flex items-center gap-4 p-4 bg-slate-900/50 border border-slate-800/80 rounded-2xl">
+                                <div class="w-12 h-12 rounded-xl bg-teal-500/10 border border-teal-500/20 text-teal-400 flex items-center justify-center text-lg">
+                                    <i class="fas fa-envelope"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-xs uppercase tracking-wider text-slate-500 font-bold">Kirim Email</h4>
+                                    <span class="text-sm font-semibold text-slate-200">muhammad.khalifa3289@gmail.com</span>
+                                </div>
+                            </div>
+
+                            <!-- GitHub -->
+                            <div class="flex items-center gap-4 p-4 bg-slate-900/50 border border-slate-800/80 rounded-2xl">
+                                <div class="w-12 h-12 rounded-xl bg-rose-500/10 border border-rose-500/20 text-rose-400 flex items-center justify-center text-lg">
+                                    <i class="fab fa-github"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-xs uppercase tracking-wider text-slate-500 font-bold">Kunjungi GitHub</h4>
+                                    <span class="text-sm font-semibold text-slate-200">github.com/lippbyte</span>
+                                </div>
+                            </div>
+
+                            <!-- LinkedIn -->
+                            <div class="flex items-center gap-4 p-4 bg-slate-900/50 border border-slate-800/80 rounded-2xl">
+                                <div class="w-12 h-12 rounded-xl bg-teal-500/10 border border-teal-500/20 text-teal-400 flex items-center justify-center text-lg">
+                                    <i class="fab fa-linkedin-in"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-xs uppercase tracking-wider text-slate-500 font-bold">Koneksi LinkedIn</h4>
+                                    <span class="text-sm font-semibold text-slate-200">linkedin.com/in/muhammad-khalifa-72611b3b8</span>
+                                </div>
+                            </div>
+
                         </div>
-                        <div class="contact-form-group">
-                            <label for="contact-message" class="contact-form-label">Pesan</label>
-                            <textarea id="contact-message" name="message" class="contact-form-input contact-form-textarea" placeholder="Tulis pesan Anda..." required></textarea>
-                        </div>
-                        <button type="submit" class="contact-form-btn" id="contact-submit-btn">
-                            <i class='bx bx-send'></i> <span>Kirim Pesan</span>
-                        </button>
-                        <p class="contact-form-message" id="contact-form-message"></p>
-                    </form>
+                    </div>
+
+                    <!-- Right: Minimalist Form Glassmorphism -->
+                    <div class="p-8 rounded-3xl bg-slate-900/40 border border-slate-800/60 shadow-2xl relative overflow-hidden backdrop-blur-md">
+                        <!-- Tiny inner glow decor -->
+                        <div class="absolute -right-20 -bottom-20 w-48 h-48 bg-teal-500/5 rounded-full blur-3xl pointer-events-none"></div>
+
+                        <form id="contact-form" action="https://formsubmit.co/muhammad.khalifa3289@gmail.com" method="POST" class="space-y-5 relative z-10">
+                            <!-- FormSubmit Configurations -->
+                            <input type="hidden" name="_subject" value="Pesan Baru dari Portofolio Lippbyte">
+                            <input type="hidden" name="_captcha" value="false">
+                            <input type="hidden" name="_template" value="table">
+                            <input type="text" name="_honey" style="display:none">
+
+                            <div class="space-y-1.5">
+                                <label for="contact-name" class="text-xs uppercase font-bold tracking-wider text-slate-400">Nama Lengkap</label>
+                                <input type="text" id="contact-name" name="name" required class="w-full bg-slate-950/80 border border-slate-800 rounded-xl px-4 py-3.5 text-sm text-slate-200 placeholder-slate-600 focus:outline-none focus:border-teal-500 focus:ring-1 focus:ring-teal-500 transition-all font-body" placeholder="Masukkan nama Anda">
+                            </div>
+
+                            <div class="space-y-1.5">
+                                <label for="contact-email" class="text-xs uppercase font-bold tracking-wider text-slate-400">Alamat Email</label>
+                                <input type="email" id="contact-email" name="email" required class="w-full bg-slate-950/80 border border-slate-800 rounded-xl px-4 py-3.5 text-sm text-slate-200 placeholder-slate-600 focus:outline-none focus:border-teal-500 focus:ring-1 focus:ring-teal-500 transition-all font-body" placeholder="Masukkan email Anda">
+                            </div>
+
+                            <div class="space-y-1.5">
+                                <label for="contact-message" class="text-xs uppercase font-bold tracking-wider text-slate-400">Isi Pesan</label>
+                                <textarea id="contact-message" name="message" rows="4" required class="w-full bg-slate-950/80 border border-slate-800 rounded-xl px-4 py-3.5 text-sm text-slate-200 placeholder-slate-600 focus:outline-none focus:border-teal-500 focus:ring-1 focus:ring-teal-500 transition-all resize-none font-body" placeholder="Tulis deskripsi ide kolaborasi Anda..."></textarea>
+                            </div>
+
+                            <div class="pt-2">
+                                <button type="submit" id="contact-submit-btn" class="w-full py-4 bg-teal-500 hover:bg-teal-400 text-slate-950 font-bold rounded-xl text-xs uppercase tracking-wider transition-all duration-300 shadow-[0_0_15px_rgba(20,167,160,0.15)] flex items-center justify-center gap-2">
+                                    <i class="fas fa-paper-plane"></i> <span>Kirim Pesan</span>
+                                </button>
+                            </div>
+
+                            <!-- Success/Error Feedback Container -->
+                            <div id="contact-form-message" class="pt-2 text-center text-xs"></div>
+                        </form>
+                    </div>
+
                 </div>
             </div>
         </section>
 
     </main>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="footer-container container">
-            <h2 class="footer-title">Lippbyte.</h2>
-            <ul class="footer-list">
-                <li><a href="#about" class="footer-link">Tentang</a></li>
-                <li><a href="#projects" class="footer-link">Project</a></li>
-                <li><a href="#skills" class="footer-link">Skills</a></li>
+    <!-- FOOTER -->
+    <footer class="bg-slate-950 border-t border-slate-900 py-12 px-6 relative z-10">
+        <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
+            <!-- Brand -->
+            <div class="text-center md:text-left space-y-2">
+                <a href="#" class="text-xl font-bold tracking-tight text-white font-heading">
+                    Lipp<span class="text-rose-400">byte.</span>
+                </a>
+                <p class="text-xs text-slate-500 font-body">Mengeksplorasi Rekayasa Perangkat Lunak & Kecerdasan Buatan.</p>
+            </div>
+
+            <!-- Mini Nav -->
+            <ul class="flex flex-wrap justify-center gap-6 text-xs uppercase tracking-widest text-slate-400 font-bold">
+                <li><a href="#about" class="hover:text-teal-400 transition-colors">Tentang</a></li>
+                <li><a href="#projects" class="hover:text-teal-400 transition-colors">Project</a></li>
+                <li><a href="#skills" class="hover:text-teal-400 transition-colors">Skills</a></li>
+                <li><a href="#journey" class="hover:text-teal-400 transition-colors">Journey</a></li>
             </ul>
-            <p class="footer-copy">
-                &#169; <span id="year">2026</span> Lippbyte. All rights reserved.<br>
+
+            <!-- Copyright -->
+            <p class="text-xs text-slate-500 font-medium">
+                © <span id="year">2026</span> Lippbyte. All rights reserved.
             </p>
         </div>
     </footer>
 
-    <!-- Scroll Top -->
-    <a href="#" class="scrollup" id="scroll-up">
-        <i class='bx bx-up-arrow-alt scrollup-icon'></i>
+    <!-- SCROLL TO TOP FLOATING BUTTON -->
+    <a href="#" id="scroll-up" class="fixed bottom-6 right-6 w-11 h-11 bg-slate-900 border border-slate-800 text-teal-400 hover:text-white rounded-xl shadow-2xl flex items-center justify-center text-sm z-40 opacity-0 pointer-events-none translate-y-4 transition-all duration-300 ease-in-out hover:border-teal-500" aria-label="Scroll to Top">
+        <i class="fas fa-chevron-up"></i>
     </a>
 
-    <!-- Custom JS -->
-    <script src="script.js"></script>
+    <!-- CUSTOM INTERACTIVE JAVASCRIPT -->
+    <script src="assets/js/main.js"></script>
 </body>
 </html>
